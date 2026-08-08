@@ -23,10 +23,11 @@
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{
-    margin:0;padding:0;height:100%;width:100%;
+    margin:0;padding:0;min-height:100%;width:100%;
     background:#050505;
-    overflow:hidden;
-    overscroll-behavior:none;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior-y:none;
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
   }
   .stage{
@@ -37,6 +38,97 @@
     display:flex;
     align-items:flex-end;
     justify-content:center;
+  }
+  @keyframes bob{
+    0%,100%{ transform:translateX(-50%) translateY(0); }
+    50%{ transform:translateX(-50%) translateY(5px); }
+  }
+  .portfolio{
+    position:relative;
+    z-index:2;
+    background:#050505;
+    padding:56px 20px calc(64px + var(--safe-b));
+  }
+  .portfolio-head{
+    text-align:center;
+    max-width:480px;
+    margin:0 auto 28px;
+  }
+  .portfolio-head p.kicker{
+    margin:0 0 8px;
+    font-size:10.5px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .portfolio-head h2{
+    margin:0;
+    font-size:24px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .portfolio-head p.sub{
+    margin:10px 0 0;
+    font-size:13px;
+    color:var(--ink-dim);
+    line-height:1.5;
+  }
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+    max-width:920px;
+    margin:0 auto 40px;
+  }
+  .pf-card{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    padding:20px 18px;
+    border-radius:18px;
+    background:var(--glass-bg);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    text-decoration:none;
+    color:var(--ink);
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .pf-card:active{ transform:scale(0.98); }
+  .pf-card .pf-tag{
+    font-size:9.5px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .pf-card h3{
+    margin:0;
+    font-size:16px;
+    font-weight:600;
+  }
+  .pf-card p{
+    margin:0;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    line-height:1.4;
+  }
+  .pf-card .pf-link{
+    margin-top:4px;
+    font-size:11.5px;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .portfolio-sub{
+    max-width:480px;
+    margin:0 auto 20px;
+    text-align:center;
+  }
+  .portfolio-sub h3{
+    margin:0 0 4px;
+    font-size:15px;
+    color:var(--ink);
   }
   .photo-wrap{
     position:absolute;
@@ -219,7 +311,7 @@
   }
   .grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:12px;
     opacity:0;
     transform:translateY(18px);
@@ -346,12 +438,57 @@
             <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
             <span>Email</span>
           </a>
+          <a class="btn" href="#portfolio">
+            <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
+            <span>Portafolio</span>
+          </a>
         </div>
         <div class="signature"><span>dhelfhos</span></div>
       </div>
     </div>
   </div>
 </div>
+
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-head">
+    <p class="kicker">Trabajo Realizado</p>
+    <h2>Portafolio</h2>
+    <p class="sub">Menús interactivos que he creado para distintos negocios.</p>
+  </div>
+
+  <div class="portfolio-grid">
+    <a class="pf-card" href="https://dhelfhos-techmanagement.github.io/lamerica-smartmenu-premium/" target="_blank" rel="noopener">
+      <span class="pf-tag">Menú Digital</span>
+      <h3>L'America — Smart Menu Premium</h3>
+      <p>Menú interactivo premium para restaurante italiano.</p>
+      <span class="pf-link">Ver menú ↗</span>
+    </a>
+    <a class="pf-card" href="https://dhelfhos-techmanagement.github.io/lamerica-servizio-espresso/" target="_blank" rel="noopener">
+      <span class="pf-tag">Menú Digital</span>
+      <h3>L'America — Servizio Espresso</h3>
+      <p>Menú interactivo con asistente virtual y pedidos por WhatsApp.</p>
+      <span class="pf-link">Ver menú ↗</span>
+    </a>
+    <a class="pf-card" href="https://dhelfhos-techmanagement.github.io/Lamerica-/" target="_blank" rel="noopener">
+      <span class="pf-tag">Menú Digital</span>
+      <h3>L'America</h3>
+      <p>Versión de menú interactivo para L'America.</p>
+      <span class="pf-link">Ver menú ↗</span>
+    </a>
+    <a class="pf-card" href="https://dhelfhos-techmanagement.github.io/hawaii-menu/" target="_blank" rel="noopener">
+      <span class="pf-tag">Menú Digital</span>
+      <h3>Hawaii Lounge Bar</h3>
+      <p>Menú interactivo para lounge bar.</p>
+      <span class="pf-link">Ver menú ↗</span>
+    </a>
+    <a class="pf-card" href="https://dhelfhos-techmanagement.github.io/fiorellascake/" target="_blank" rel="noopener">
+      <span class="pf-tag">Menú Digital</span>
+      <h3>Fiorella's Cake</h3>
+      <p>Menú interactivo para pastelería.</p>
+      <span class="pf-link">Ver menú ↗</span>
+    </a>
+  </div>
+</section>
 
 <script>
 (function(){
@@ -365,10 +502,16 @@
   var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   var rafId = null;
 
+  var scrollY = 0;
+  window.addEventListener('scroll', function(){
+    scrollY = window.scrollY || window.pageYOffset || 0;
+  }, {passive:true});
+
   function apply(){
     cx += (tx - cx) * 0.08;
     cy += (ty - cy) * 0.08;
-    photoWrap.style.transform = 'translate3d(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px,0) scale(1.03)';
+    var parallaxY = reduceMotion ? 0 : scrollY * 0.35;
+    photoWrap.style.transform = 'translate3d(' + cx.toFixed(2) + 'px,' + (cy + parallaxY).toFixed(2) + 'px,0) scale(1.03)';
 
     if(panelTilt && !reduceMotion){
       cTiltX += (tTiltX - cTiltX) * 0.08;
