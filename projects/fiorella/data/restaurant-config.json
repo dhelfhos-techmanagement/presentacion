@@ -1,0 +1,20 @@
+{
+  "name": "Fiorella's Cake",
+  "slogan": { "es": "Hechos con Amor", "en": "Made with Love" },
+  "instagram": { "handle": "@fiorellas.cake", "url": "https://instagram.com/fiorellas.cake" },
+  "whatsapp": { "display": "316 293 0633", "e164": "573162930633" },
+  "maps": { "url": "https://maps.app.goo.gl/9HCg7AaR9kjghXVB7" },
+  "colors": {
+    "background": "#FFF4F7",
+    "chocolate": "#3A2418",
+    "pink": "#F25D9C",
+    "white": "#FFFFFF",
+    "detail": "#FFD8E8"
+  },
+  "assets": {
+    "logoText": "Fiorella's Cake",
+    "bicycle": "images/feature/bicicleta.webp",
+    "heroVideo": "media/torta-chocolate.mp4",
+    "promoFlyer": "promo/flyer-actual.jpg"
+  }
+}

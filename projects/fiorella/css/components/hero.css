@@ -1,0 +1,31 @@
+.hero-card{
+  position:relative;margin:16px 20px 0;border-radius:26px;overflow:hidden;
+  aspect-ratio:16/10;box-shadow:0 20px 40px -14px rgba(214,51,108,0.35);
+  background:var(--chocolate);
+}
+.hero-card video{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(58,36,24,0.45),rgba(58,36,24,0.1));}
+.hero-bike{
+  position:absolute;right:14px;bottom:14px;width:76px;opacity:0.94;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,0.35));
+  pointer-events:none;
+}
+.hero-scroll-indicator{
+  position:absolute;left:50%;bottom:10px;transform:translateX(-50%);
+  width:22px;height:34px;border:2px solid rgba(255,255,255,0.8);border-radius:14px;
+}
+.hero-scroll-indicator::after{
+  content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:4px;height:8px;border-radius:2px;background:#fff;
+  animation:heroScrollDot 1.6s ease-in-out infinite;
+}
+@keyframes heroScrollDot{0%{opacity:1;top:6px;}70%{opacity:0;top:18px;}100%{opacity:0;top:6px;}}
+
+.welcome{padding:30px 28px 10px;text-align:center;}
+.welcome h2{font-size:clamp(24px,7vw,30px);color:var(--pink-deep);letter-spacing:0.5px;}
+.welcome .tag{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text);font-size:15px;margin-top:6px;}
+.welcome .divider{color:var(--pink);font-size:13px;margin:16px 0;letter-spacing:8px;}
+.welcome .desc{font-size:14px;line-height:1.6;color:var(--text-dim);max-width:34ch;margin:0 auto;}
+.welcome-bike{width:min(78%,340px);margin:22px auto 0;display:block;}
+.welcome-bike img{width:100%;}
+.welcome-bike .flowers{transform-origin:80% 30%;}

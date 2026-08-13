@@ -1,0 +1,38 @@
+.item{
+  display:flex;flex-direction:column;
+  padding:14px 0;border-bottom:1px solid var(--line);
+}
+.cat-panel .items .item:last-child{border-bottom:none;}
+.item-main{display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;}
+.item .row{display:flex;align-items:center;gap:14px;min-width:0;}
+.item .thumb{
+  width:56px;height:56px;border-radius:12px;flex-shrink:0;object-fit:cover;
+  box-shadow:0 6px 16px rgba(58,36,24,0.25);
+}
+.item .info{min-width:0;}
+.item .info h4{font-size:15px;color:var(--text);font-weight:500;margin-bottom:3px;}
+.item .info p{font-size:12px;color:var(--text-dim);}
+.item .info .likes{font-size:11px;color:var(--pink-deep);margin-top:2px;display:flex;align-items:center;gap:3px;}
+.item .price-col{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.item .price{font-family:'Playfair Display',serif;font-weight:600;color:var(--pink-deep);font-size:15px;white-space:nowrap;}
+
+.like-btn{background:none;border:none;font-size:13px;cursor:pointer;color:var(--pink-deep);padding:2px;display:inline-flex;align-items:center;gap:3px;}
+.like-btn.liked .heart{transform:scale(1.15);}
+.like-btn .heart{display:inline-block;transition:transform .25s var(--ease);}
+
+.add-btn{
+  background:var(--pink-soft);color:var(--pink-deep);border:none;border-radius:20px;
+  padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;
+  transition:background .2s var(--ease), color .2s var(--ease), transform .15s var(--ease);
+}
+.add-btn:active{transform:scale(0.94);}
+.add-btn.flying{background:var(--pink);color:#fff;}
+
+/* expanded detail */
+.item-detail{max-height:0;opacity:0;overflow:hidden;transition:max-height .4s var(--ease), opacity .3s ease, margin-top .4s var(--ease);}
+.item-detail.open{max-height:600px;opacity:1;margin-top:12px;}
+.item-detail-inner{display:flex;flex-direction:column;gap:10px;background:var(--bg);border-radius:14px;padding:14px;}
+.item-detail-inner img{width:100%;border-radius:12px;aspect-ratio:4/3;object-fit:cover;}
+.item-detail-inner .desc{font-size:12.5px;color:var(--text-dim);line-height:1.6;}
+.item-detail-inner .related{display:flex;gap:10px;overflow-x:auto;padding-top:4px;}
+.item-detail-inner .related img{width:64px;height:64px;border-radius:10px;object-fit:cover;flex-shrink:0;}

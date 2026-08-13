@@ -1,0 +1,153 @@
+{
+  "categories": [
+    {
+      "id": "tortas",
+      "icon": "🍰",
+      "image": "images/feature/tortas.webp",
+      "name": { "es": "Tortas y Postres", "en": "Cakes & Desserts" },
+      "description": { "es": "Deliciosos pasteles para celebrar momentos únicos.", "en": "Delicious cakes to celebrate unique moments." },
+      "note": { "es": "Tortas y postres según disponibilidad del día.", "en": "Cakes and desserts subject to daily availability." },
+      "items": [
+        { "id": "duquesa-chocolate", "name": { "es": "Duquesa de chocolate", "en": "Chocolate duquesa" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 10500, "image": "images/thumb/duquesa-chocolate.webp", "likes": 245 },
+        { "id": "browniecake", "name": { "es": "Browniecake", "en": "Browniecake" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 10500, "image": "images/thumb/browniecake.webp", "likes": 198 },
+        { "id": "flan-caramelo", "name": { "es": "Flan de caramelo", "en": "Caramel flan" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 10500, "image": "images/thumb/flan-caramelo.webp", "likes": 176 },
+        { "id": "zanahoria", "name": { "es": "Zanahoria", "en": "Carrot cake" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 10500, "image": "images/thumb/zanahoria.webp", "likes": 152 },
+        { "id": "vainilla-arequipe", "name": { "es": "Vainilla arequipe", "en": "Vanilla dulce de leche" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 10500, "image": "images/thumb/vainilla-arequipe.webp", "likes": 140 },
+        { "id": "brookiecake", "name": { "es": "Brookiecake", "en": "Brookiecake" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 10500, "image": "images/thumb/brookiecake.webp", "likes": 211 },
+        { "id": "cuatro-leches", "name": { "es": "Cuatro leches", "en": "Four milks cake" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 12000, "image": "images/thumb/cuatro-leches.webp", "likes": 267 },
+        { "id": "cheesecake-limon", "name": { "es": "Cheesecake limón", "en": "Lemon cheesecake" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 12000, "image": "images/thumb/cheesecake-limon.webp", "likes": 289 },
+        { "id": "cheesecake-maracuya", "name": { "es": "Cheesecake maracuyá", "en": "Passion fruit cheesecake" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 12000, "image": "images/thumb/cheesecake-maracuya.webp", "likes": 302 },
+        { "id": "napoleon-cuchareable", "name": { "es": "Napoleón cuchareable", "en": "Spoonable napoleon" }, "description": { "es": "Porción individual", "en": "Individual portion" }, "price": 12000, "image": "images/thumb/napoleon-cuchareable.webp", "likes": 165 }
+      ]
+    },
+    {
+      "id": "galletas",
+      "icon": "🍪",
+      "image": "images/feature/galletas.webp",
+      "name": { "es": "Galletas", "en": "Cookies" },
+      "description": { "es": "Artesanales, crujientes por fuera y suaves por dentro.", "en": "Handmade, crunchy outside and soft inside." },
+      "items": [
+        { "id": "triple-chocolate", "name": { "es": "Triple chocolate", "en": "Triple chocolate" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/triple-chocolate.webp", "likes": 187 },
+        { "id": "galleta-helado", "name": { "es": "Galleta con helado", "en": "Cookie with ice cream" }, "description": { "es": "", "en": "" }, "price": 17000, "image": "images/thumb/galleta-helado.webp", "likes": 233 }
+      ]
+    },
+    {
+      "id": "waffles-dulces",
+      "icon": "🧇",
+      "image": "images/feature/waffles.webp",
+      "name": { "es": "Mini Waffles Dulces", "en": "Sweet Mini Waffles" },
+      "description": { "es": "Con toppings irresistibles.", "en": "With irresistible toppings." },
+      "items": [
+        { "id": "nutella-helado", "name": { "es": "Nutella con helado", "en": "Nutella with ice cream" }, "description": { "es": "", "en": "" }, "price": 13000, "image": "images/thumb/nutella-helado.webp", "likes": 210 },
+        { "id": "arequipe-helado", "name": { "es": "Arequipe con helado", "en": "Dulce de leche with ice cream" }, "description": { "es": "", "en": "" }, "price": 12000, "image": "images/thumb/arequipe-helado.webp", "likes": 178 }
+      ]
+    },
+    {
+      "id": "waffles-salados",
+      "icon": "🧇",
+      "image": "images/feature/waffles.webp",
+      "name": { "es": "Mini Waffles Salados", "en": "Savory Mini Waffles" },
+      "description": { "es": "Salados, con toppings irresistibles.", "en": "Savory, with irresistible toppings." },
+      "items": [
+        { "id": "queso-tocineta", "name": { "es": "Queso y tocineta", "en": "Cheese and bacon" }, "description": { "es": "", "en": "" }, "price": 13000, "image": "images/thumb/queso-tocineta.webp", "likes": 143 },
+        { "id": "napolitano", "name": { "es": "Napolitano", "en": "Napolitano" }, "description": { "es": "", "en": "" }, "price": 12000, "image": "images/thumb/napolitano.webp", "likes": 121 }
+      ]
+    },
+    {
+      "id": "picar",
+      "icon": "🍟",
+      "image": "images/feature/picar.webp",
+      "name": { "es": "Para Picar", "en": "Snacks" },
+      "description": { "es": "Deditos, arepas, nuggets y más para compartir.", "en": "Cheese sticks, arepas, nuggets and more to share." },
+      "items": [
+        { "id": "deditos-mozzarella", "name": { "es": "Deditos de queso mozzarella (5 uni)", "en": "Mozzarella cheese sticks (5 pcs)" }, "description": { "es": "", "en": "" }, "price": 7000, "image": "images/thumb/deditos-mozzarella.webp", "likes": 132 },
+        { "id": "arepa-casa", "name": { "es": "Arepa de la casa con queso costeño", "en": "House arepa with costeño cheese" }, "description": { "es": "", "en": "" }, "price": 7000, "image": "images/thumb/arepa-casa.webp", "likes": 118 },
+        { "id": "nuggets-papas", "name": { "es": "Nuggets con papitas", "en": "Nuggets with fries" }, "description": { "es": "", "en": "" }, "price": 10500, "image": "images/thumb/nuggets-papas.webp", "likes": 156 },
+        { "id": "empanaditas", "name": { "es": "Empanaditas (3 uni)", "en": "Mini empanadas (3 pcs)" }, "description": { "es": "", "en": "" }, "price": 7000, "image": "images/thumb/empanaditas.webp", "likes": 109 }
+      ]
+    },
+    {
+      "id": "sandwichs",
+      "icon": "🥪",
+      "image": "images/feature/sandwichs.webp",
+      "name": { "es": "Sandwichs", "en": "Sandwiches" },
+      "description": { "es": "Pan Brioche. Todos nuestros sandwichs vienen acompañados de papas a la francesa.", "en": "Brioche bread. All our sandwiches come with french fries." },
+      "items": [
+        { "id": "jamon-cerdo", "name": { "es": "Jamón de cerdo premium", "en": "Premium pork ham" }, "description": { "es": "", "en": "" }, "price": 15000, "image": "images/thumb/jamon-cerdo.webp", "likes": 98 },
+        { "id": "jamon-pollo", "name": { "es": "Jamón de pechuga de pollo", "en": "Chicken breast ham" }, "description": { "es": "", "en": "" }, "price": 15000, "image": "images/thumb/jamon-pollo.webp", "likes": 104 },
+        { "id": "lomo-atun", "name": { "es": "Lomo de atún en aceite de oliva", "en": "Tuna loin in olive oil" }, "description": { "es": "", "en": "" }, "price": 15000, "image": "images/thumb/lomo-atun.webp", "likes": 87 },
+        { "id": "triple-queso", "name": { "es": "Triple queso", "en": "Triple cheese" }, "description": { "es": "", "en": "" }, "price": 15000, "image": "images/thumb/triple-queso.webp", "likes": 112 }
+      ]
+    },
+    {
+      "id": "malteadas",
+      "icon": "🥤",
+      "image": "images/feature/malteadas.webp",
+      "name": { "es": "Malteadas", "en": "Milkshakes" },
+      "description": { "es": "Cremosas, en sabores únicos y deliciosos.", "en": "Creamy, in unique and delicious flavors." },
+      "items": [
+        { "id": "malteada-oreo", "name": { "es": "Oreo", "en": "Oreo" }, "description": { "es": "", "en": "" }, "price": 17000, "image": "images/thumb/malteada-oreo.webp", "likes": 256 },
+        { "id": "malteada-arequipe", "name": { "es": "Arequipe", "en": "Dulce de leche" }, "description": { "es": "", "en": "" }, "price": 17000, "image": "images/thumb/malteada-arequipe.webp", "likes": 201 },
+        { "id": "malteada-vainilla", "name": { "es": "Vainilla golden", "en": "Golden vanilla" }, "description": { "es": "", "en": "" }, "price": 17000, "image": "images/thumb/malteada-vainilla.webp", "likes": 167 },
+        { "id": "malteada-frutosrojos", "name": { "es": "Frutos rojos", "en": "Red berries" }, "description": { "es": "", "en": "" }, "price": 17000, "image": "images/thumb/malteada-frutosrojos.webp", "likes": 189 },
+        { "id": "malteada-cafe", "name": { "es": "Café", "en": "Coffee" }, "description": { "es": "", "en": "" }, "price": 17000, "image": "images/thumb/malteada-cafe.webp", "likes": 145 }
+      ]
+    },
+    {
+      "id": "helados",
+      "icon": "🍨",
+      "image": "images/feature/helados.webp",
+      "name": { "es": "Helados", "en": "Ice Cream" },
+      "description": { "es": "Bolas de helado, tortas frías y más para disfrutar.", "en": "Ice cream scoops, frozen cakes and more to enjoy." },
+      "items": [
+        { "id": "bola-helado", "name": { "es": "Bola de helado", "en": "Ice cream scoop" }, "description": { "es": "", "en": "" }, "price": 8000, "image": "images/thumb/bola-helado.webp", "likes": 134 },
+        { "id": "porcion-torta-helado", "name": { "es": "Porción de torta con helado", "en": "Cake slice with ice cream" }, "description": { "es": "", "en": "" }, "price": 17000, "image": "images/thumb/porcion-torta-helado.webp", "likes": 176 },
+        { "id": "galleta-con-helado-2", "name": { "es": "Galleta con helado", "en": "Cookie with ice cream" }, "description": { "es": "", "en": "" }, "price": 17000, "image": "images/thumb/galleta-con-helado-2.webp", "likes": 162 }
+      ]
+    },
+    {
+      "id": "calientes",
+      "icon": "☕",
+      "image": "images/feature/calientes.webp",
+      "name": { "es": "Bebidas Calientes", "en": "Hot Drinks" },
+      "description": { "es": "Cafés, lattes y capuchinos para disfrutar siempre.", "en": "Coffees, lattes and cappuccinos to enjoy anytime." },
+      "items": [
+        { "id": "espresso", "name": { "es": "Espresso", "en": "Espresso" }, "description": { "es": "", "en": "" }, "price": 5000, "image": "images/thumb/espresso.webp", "likes": 88 },
+        { "id": "americano", "name": { "es": "Americano", "en": "Americano" }, "description": { "es": "", "en": "" }, "price": 5000, "image": "images/thumb/americano.webp", "likes": 91 },
+        { "id": "americano-doble", "name": { "es": "Americano doble", "en": "Double americano" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/americano-doble.webp", "likes": 74 },
+        { "id": "latte", "name": { "es": "Latte", "en": "Latte" }, "description": { "es": "", "en": "" }, "price": 8000, "image": "images/thumb/latte.webp", "likes": 102 },
+        { "id": "capuccino", "name": { "es": "Capuchino", "en": "Cappuccino" }, "description": { "es": "", "en": "" }, "price": 8000, "image": "images/thumb/capuccino.webp", "likes": 119 },
+        { "id": "capuccino-vainilla", "name": { "es": "Capuchino vainilla", "en": "Vanilla cappuccino" }, "description": { "es": "", "en": "" }, "price": 9000, "image": "images/thumb/capuccino-vainilla.webp", "likes": 96 },
+        { "id": "aromatica", "name": { "es": "Aromática", "en": "Herbal tea" }, "description": { "es": "", "en": "" }, "price": 3000, "image": "images/thumb/aromatica.webp", "likes": 58 },
+        { "id": "macchiato", "name": { "es": "Macchiato", "en": "Macchiato" }, "description": { "es": "", "en": "" }, "price": 8000, "image": "images/thumb/macchiato.webp", "likes": 77 },
+        { "id": "mocachino", "name": { "es": "Mocachino", "en": "Mocaccino" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/mocachino.webp", "likes": 84 }
+      ]
+    },
+    {
+      "id": "frias",
+      "icon": "🧊",
+      "image": "images/feature/frias.webp",
+      "name": { "es": "Bebidas Frías", "en": "Cold Drinks" },
+      "description": { "es": "Jugos, limonadas y refrescos bien helados.", "en": "Juices, lemonades and well-chilled soft drinks." },
+      "items": [
+        { "id": "coca-cola", "name": { "es": "Coca Cola 400 ml", "en": "Coca-Cola 400 ml" }, "description": { "es": "", "en": "" }, "price": 5500, "image": "images/thumb/coca-cola.webp", "likes": 61 },
+        { "id": "coca-cola-zero", "name": { "es": "Coca Cola Zero 400 ml", "en": "Coca-Cola Zero 400 ml" }, "description": { "es": "", "en": "" }, "price": 5500, "image": "images/thumb/coca-cola-zero.webp", "likes": 47 },
+        { "id": "agua-500", "name": { "es": "Agua 500 ml", "en": "Water 500 ml" }, "description": { "es": "", "en": "" }, "price": 3000, "image": "images/thumb/agua-500.webp", "likes": 32 },
+        { "id": "te-hatsu", "name": { "es": "Té Hatsu", "en": "Hatsu tea" }, "description": { "es": "", "en": "" }, "price": 8000, "image": "images/thumb/te-hatsu.webp", "likes": 55 },
+        { "id": "limonada-natural", "name": { "es": "Limonada natural", "en": "Natural lemonade" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/limonada-natural.webp", "likes": 138 },
+        { "id": "limonada-cerezada", "name": { "es": "Limonada cerezada", "en": "Cherry lemonade" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/limonada-cerezada.webp", "likes": 122 },
+        { "id": "limonada-coco", "name": { "es": "Limonada de coco", "en": "Coconut lemonade" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/limonada-coco.webp", "likes": 149 },
+        { "id": "limonada-hierbabuena", "name": { "es": "Limonada hierbabuena", "en": "Mint lemonade" }, "description": { "es": "", "en": "" }, "price": 12000, "image": "images/thumb/limonada-hierbabuena.webp", "likes": 131 },
+        { "id": "jugo-frutosrojos-agua", "name": { "es": "Jugo frutos rojos en agua", "en": "Red berries juice in water" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/jugo-frutosrojos-agua.webp", "likes": 92 },
+        { "id": "jugo-fresa-agua", "name": { "es": "Jugo fresa en agua", "en": "Strawberry juice in water" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/jugo-fresa-agua.webp", "likes": 99 },
+        { "id": "jugo-mora-agua", "name": { "es": "Jugo mora en agua", "en": "Blackberry juice in water" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/jugo-mora-agua.webp", "likes": 89 },
+        { "id": "jugo-frutosrojos-leche", "name": { "es": "Jugo frutos rojos en leche", "en": "Red berries juice with milk" }, "description": { "es": "", "en": "" }, "price": 12000, "image": "images/thumb/jugo-frutosrojos-leche.webp", "likes": 108 },
+        { "id": "jugo-fresa-leche", "name": { "es": "Jugo fresa en leche", "en": "Strawberry juice with milk" }, "description": { "es": "", "en": "" }, "price": 12000, "image": "images/thumb/jugo-fresa-leche.webp", "likes": 114 },
+        { "id": "jugo-mora-leche", "name": { "es": "Jugo mora en leche", "en": "Blackberry juice with milk" }, "description": { "es": "", "en": "" }, "price": 12000, "image": "images/thumb/jugo-mora-leche.webp", "likes": 101 },
+        { "id": "milo", "name": { "es": "Milo", "en": "Milo" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/milo.webp", "likes": 76 },
+        { "id": "capuccino-frio", "name": { "es": "Capuchino frío", "en": "Iced cappuccino" }, "description": { "es": "", "en": "" }, "price": 10000, "image": "images/thumb/capuccino-frio.webp", "likes": 93 },
+        { "id": "americano-frio", "name": { "es": "Americano frío", "en": "Iced americano" }, "description": { "es": "", "en": "" }, "price": 7000, "image": "images/thumb/americano-frio.webp", "likes": 68 }
+      ]
+    }
+  ]
+}
