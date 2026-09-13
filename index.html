@@ -29,8 +29,6 @@
   }
   a{color:inherit;text-decoration:none;}
   button, .contact-link, .pill-btn, .icon-btn{touch-action:manipulation;}
-
-  /* BOTTOM APP NAV */
   .bottom-nav{
     position:fixed;left:0;right:0;bottom:0;z-index:50;
     max-width:520px;margin:0 auto;
@@ -49,8 +47,6 @@
     background:var(--grad);-webkit-background-clip:text;background-clip:text;
     -webkit-text-fill-color:transparent;
   }
-
-  /* TOP BAR */
   .topbar{
     display:flex;align-items:center;justify-content:space-between;
     padding:24px;
@@ -60,8 +56,6 @@
     border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
     color:var(--muted);font-size:1.1rem;
   }
-
-  /* HERO */
   .hero-photo-wrap{
     position:relative;overflow:hidden;
   }
@@ -93,8 +87,6 @@
     width:32px;height:32px;border-radius:50%;background:var(--bg-card);
     border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
   }
-
-  /* SECTIONS */
   section{padding:36px 24px 0;}
   .section-title{font-size:1.3rem;font-weight:700;margin-bottom:6px;}
   .title-underline{width:40px;height:4px;background:var(--grad);border-radius:2px;margin-bottom:18px;}
@@ -103,16 +95,13 @@
     background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
     padding:8px 14px;font-size:0.8rem;color:var(--text);display:flex;align-items:center;gap:6px;
   }
-
   .about-text p{color:var(--muted);font-size:0.9rem;max-width:340px;}
   .signature{font-family:'Brush Script MT',cursive;font-size:1.6rem;color:var(--muted);text-align:right;margin-top:-20px;}
-
   .stats{display:flex;margin-top:24px;}
   .stat-col{flex:1;padding-right:14px;border-right:1px solid var(--border);}
   .stat-col:last-child{border-right:none;}
   .stat-col .num{font-size:1.5rem;font-weight:800;}
   .stat-col .lbl{color:var(--muted);font-size:0.78rem;}
-
   .services-list{display:flex;flex-direction:column;gap:14px;}
   .service-card{
     background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
@@ -125,7 +114,6 @@
   .service-body{padding:14px 16px 16px;}
   .service-card h3{margin-bottom:4px;font-size:1rem;}
   .service-card p{color:var(--muted);font-size:0.8rem;}
-
   .cards-scroll{
     display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;
     scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
@@ -142,8 +130,6 @@
   .project-info .p-title{font-weight:700;font-size:0.9rem;display:flex;justify-content:space-between;align-items:center;}
   .project-info .p-sub{color:var(--muted);font-size:0.75rem;}
   .arrow{color:var(--purple);}
-
-  /* real-site live thumbnail (scaled iframe) */
   .live-thumb{
     position:absolute;top:0;left:0;
     width:400%;height:400%;
@@ -153,8 +139,6 @@
   .live-visual{
     position:relative;width:100%;height:100%;overflow:hidden;
   }
-
-  /* CONTACT */
   .contact-box{
     background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
     padding:32px 24px;position:relative;overflow:hidden;
@@ -185,7 +169,6 @@
     border:1.5px dashed var(--border);border-radius:50%;
     pointer-events:none;
   }
-
   footer{
     padding:32px 24px;border-top:1px solid var(--border);margin-top:36px;
     display:flex;justify-content:space-between;align-items:center;
@@ -197,16 +180,13 @@
 </style>
 </head>
 <body>
-
 <div class="topbar">
   <a class="icon-btn" href="#home">☰</a>
   <a class="icon-btn" href="#projects">⠿</a>
 </div>
-
 <div class="hero-photo-wrap" id="home">
   <img src="assets/jose-arias.jpg" alt="Jose Arias">
 </div>
-
 <div class="hero-text">
   <p class="hero-greet">Holai'm</p>
   <h1 class="hero-name">Jose Arias</h1>
@@ -217,7 +197,6 @@
     <a class="play-link" href="projects/lamerica/index.html" target="_blank" rel="noopener"><span class="play-icon">▶</span> Ver Showreel</a>
   </div>
 </div>
-
 <section id="about">
   <h2 class="section-title">Sobre mí</h2>
   <div class="title-underline"></div>
@@ -231,7 +210,6 @@
     <div class="stat-col"><div class="num">20+</div><div class="lbl">Premios ganados</div></div>
   </div>
 </section>
-
 <section id="services">
   <div class="section-head">
     <div>
@@ -241,7 +219,6 @@
     <a class="pill-btn" href="#contact">→</a>
   </div>
   <div class="services-list">
-
     <a class="service-card" href="projects/lamerica/index.html" target="_blank" rel="noopener">
       <div class="service-visual" style="padding:0;">
         <div class="live-visual">
@@ -253,11 +230,10 @@
         <p>Sitios modernos, rápidos y responsivos para dar presencia profesional a tu marca.</p>
       </div>
     </a>
-
-    <a class="service-card" href="projects/malibut/index.html" target="_blank" rel="noopener">
+    <a class="service-card" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
       <div class="service-visual" style="padding:0;">
         <div class="live-visual">
-          <iframe class="live-thumb" src="projects/malibut/index.html" tabindex="-1" title="Ejemplo menú digital"></iframe>
+          <iframe class="live-thumb" src="https://dhelfhos-techmanagement.github.io/hawaii/" tabindex="-1" title="Hawaii Lounge Bar"></iframe>
         </div>
       </div>
       <div class="service-body">
@@ -265,7 +241,6 @@
         <p>Menús interactivos por QR para restaurantes y negocios, fáciles de actualizar.</p>
       </div>
     </a>
-
     <a class="service-card" href="projects/fiorella/index.html" target="_blank" rel="noopener">
       <div class="service-visual" style="padding:0;">
         <div class="live-visual">
@@ -277,10 +252,8 @@
         <p>Presentaciones visuales de tus productos o trabajos, listas para compartir online.</p>
       </div>
     </a>
-
   </div>
 </section>
-
 <section id="projects">
   <div class="section-head">
     <div>
@@ -314,9 +287,16 @@
       </div>
       <div class="project-info"><div class="p-title">Fiorella's Cake <span class="arrow">↗</span></div><div class="p-sub">Portafolio Digital</div></div>
     </a>
+    <a class="project-card" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
+      <div class="project-thumb">
+        <div class="live-visual">
+          <iframe class="live-thumb" src="https://dhelfhos-techmanagement.github.io/hawaii/" tabindex="-1" title="Hawaii Lounge Bar"></iframe>
+        </div>
+      </div>
+      <div class="project-info"><div class="p-title">Hawaii Lounge Bar <span class="arrow">↗</span></div><div class="p-sub">Menú Digital</div></div>
+    </a>
   </div>
 </section>
-
 <section id="contact">
   <div class="contact-box">
     <div class="swirl"></div>
@@ -354,13 +334,11 @@
     <a class="btn-primary" style="align-self:flex-start;display:inline-block;" href="https://wa.me/573043941144" target="_blank" rel="noopener">Hablemos</a>
   </div>
 </section>
-
 <footer>
   <div class="logo">Jose<span>Arias</span></div>
   <div class="socials">f 𝕏 Dr Be Ig</div>
 </footer>
 <div class="copyright">© 2026 Jose Arias. Todos los derechos reservados.</div>
-
 <nav class="bottom-nav">
   <a class="nav-item active" href="#home"><span class="n-icon">🏠</span>Inicio</a>
   <a class="nav-item" href="#about"><span class="n-icon">👤</span>Sobre mí</a>
@@ -368,6 +346,5 @@
   <a class="nav-item" href="#projects"><span class="n-icon">🗂️</span>Proyectos</a>
   <a class="nav-item" href="#contact"><span class="n-icon">💬</span>Contacto</a>
 </nav>
-
 </body>
 </html>
