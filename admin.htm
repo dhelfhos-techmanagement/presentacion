@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Administración | El Parche</title>
+<link rel="icon" href="/assets/logo-sm.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090B;--s1:#131317;--s2:#1C1C24;--ln:#2a2a35;--y:#FFE500;--o:#FF9E00;--ok:#3DDC84;--bad:#FF4D4D;--tx:#F4F4F5;--mut:#9a9aa6;--f:'Inter',system-ui,sans-serif;--d:'Outfit','Inter',system-ui,sans-serif}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 var(--f)}
+button,select,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;border-radius:12px;min-height:44px;padding:0 16px;background:var(--s2)}
+button:disabled{opacity:.5}
+input,select,textarea{background:var(--s1);border:2px solid var(--ln);border-radius:10px;min-height:44px;padding:0 12px;width:100%}
+textarea{padding:10px 12px;min-height:60px}
+:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+.y{background:var(--y);color:#111;font-weight:800}.r{background:#3a1519;color:#ffb3b3}
+.login{min-height:100svh;display:grid;place-content:center;justify-items:center;gap:14px;padding:24px;text-align:center}
+.login img{width:96px}.login h1{font:800 2rem var(--d);margin:0}.login input{width:260px;text-align:center}
+.err{color:var(--bad);min-height:1.4em;margin:0}
+header{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top));background:var(--s1);border-bottom:1px solid var(--ln)}
+header h1{font:800 1.3rem var(--d);margin:0 auto 0 0}
+nav{display:flex;gap:6px}nav button[aria-selected=true]{background:var(--y);color:#111;font-weight:800}
+main{max-width:1100px;margin:0 auto;padding:14px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--s1);border:1px solid var(--ln);border-radius:14px;padding:12px}
+.tile small{color:var(--mut)}.tile b{display:block;font:800 1.5rem var(--d)}
+table{width:100%;border-collapse:collapse;margin:8px 0 18px}th,td{text-align:left;padding:8px;border-top:1px solid var(--ln)}th{color:var(--mut);font-weight:600}td.n,th.n{text-align:right}
+h2{font:800 1.1rem var(--d);margin:16px 0 4px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}.bar>*{width:auto}
+.chip[aria-pressed=true]{background:var(--y);color:#111;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{background:var(--s1);border:2px solid var(--ln);border-left-width:8px;border-radius:16px;padding:14px}
+.e-nuevo{border-left-color:var(--y)}.e-en_cocina{border-left-color:var(--o)}.e-listo{border-left-color:var(--ok)}.e-entregado{border-left-color:var(--mut)}.e-cancelado{border-left-color:var(--bad);opacity:.7}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.num{font:800 1.6rem var(--d)}
+.meta{color:var(--mut);margin:2px 0 8px}
+.tag{display:inline-block;border-radius:6px;padding:1px 8px;font-size:.8rem;font-weight:800;background:var(--y);color:#111}.tag.d{background:var(--o)}.tag.a{background:#fff}.tag.ok{background:var(--ok)}
+ul{list-style:none;margin:0 0 8px;padding:0}li{padding:4px 0;border-top:1px dashed var(--ln)}li em{display:block;color:var(--y);font-style:normal}
+.tot{display:flex;justify-content:space-between;font:800 1.2rem var(--d);margin:6px 0}
+.acts{display:flex;flex-wrap:wrap;gap:8px}.acts select{width:auto}
+dialog{background:var(--s1);color:var(--tx);border:1px solid var(--ln);border-radius:16px;width:min(680px,95vw);max-height:90vh;padding:16px}dialog::backdrop{background:#000b}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:10px 0}.f label{display:grid;gap:4px;color:var(--mut);font-size:.9rem}
+.pk{max-height:200px;overflow:auto;margin:8px 0;border:1px solid var(--ln);border-radius:10px;padding:0 10px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 0;border-top:1px solid var(--ln)}.row:first-child{border-top:0}
+.row input{width:100%}.qty{display:flex;align-items:center;gap:8px}.qty button{min-width:44px;padding:0}
+.mr{flex-wrap:wrap}.mr>input[data-k=nombre_es]{flex:1;min-width:160px}.mr input[type=checkbox]{width:22px;min-height:22px}.mr label{display:flex;gap:4px;align-items:center}
+.qrs{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}.qrc{background:#fff;color:#111;border-radius:12px;padding:10px;text-align:center;display:grid;gap:2px}.qrc svg{width:100%;height:auto}.qrc small{color:#555}
+@media print{header,.bar,.noprint{display:none!important}body{background:#fff}.qrc{break-inside:avoid;border:1px solid #000}}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--bad);padding:10px 16px;border-radius:12px;font-weight:600;z-index:99}.toast.ok{background:var(--ok);color:#111}
+</style>
+</head>
+<body>
+<main id="login" class="login">
+  <img src="/assets/logo-sm.webp" alt="El Parche">
+  <h1>Administración</h1>
+  <form id="lf" style="display:grid;gap:12px;justify-items:center">
+    <input id="pw" type="password" autocomplete="current-password" aria-label="Clave del dueño" placeholder="Clave" required>
+    <p class="err" id="err" role="alert"></p>
+    <button class="y" style="width:260px">Entrar</button>
+  </form>
+</main>
+
+<div id="app" hidden>
+  <header>
+    <h1>El Parche</h1>
+    <nav role="tablist">
+      <button role="tab" data-tab="pedidos" aria-selected="true">Pedidos</button>
+      <button role="tab" data-tab="resumen" aria-selected="false">Resumen</button>
+      <button role="tab" data-tab="menu" aria-selected="false">Menú</button>
+      <button role="tab" data-tab="meseros" aria-selected="false">Meseros</button>
+      <button role="tab" data-tab="qr" aria-selected="false">QR mesas</button>
+    </nav>
+    <button id="out">Salir</button>
+  </header>
+  <main>
+    <div class="bar"><label for="fecha" style="color:var(--mut)">Día</label><input id="fecha" type="date" style="max-width:180px"></div>
+
+    <section id="t-pedidos">
+      <div class="bar"><button class="y" id="nuevo">+ Nuevo pedido</button><span id="chips" style="display:contents"></span></div>
+      <div class="grid" id="lista"></div>
+    </section>
+
+    <section id="t-resumen" hidden>
+      <div class="tiles" id="tiles"></div>
+      <h2>Por medio de pago</h2><div id="mp"></div>
+      <h2>Por mesero</h2><div id="ms"></div>
+      <h2>Platos más vendidos (todo el historial)</h2><div id="top"></div>
+      <h2>Horas pico (todo el historial)</h2><div id="hp"></div>
+      <h2>Cierre de caja</h2><div id="caja"></div>
+    </section>
+
+    <section id="t-menu" hidden>
+      <h2>Agregar plato</h2>
+      <div class="f"><label>Categoría<select id="nc"></select></label><label>Nombre<input id="nn" maxlength="80"></label><label>Precio<input id="np" inputmode="numeric"></label><button class="y" id="na" style="align-self:end">Agregar</button></div>
+      <h2>Platos</h2>
+      <div class="bar"><select id="mc" aria-label="Categoría" style="max-width:260px"></select><input id="mq" type="search" placeholder="Buscar plato" aria-label="Buscar plato" style="max-width:260px"></div>
+      <div id="ml"></div>
+    </section>
+
+    <section id="t-meseros" hidden>
+      <div class="f"><label>Nombre<input id="mn" maxlength="60"></label><label>Código (opcional)<input id="mcod" maxlength="10"></label><button class="y" id="ma" style="align-self:end">Agregar mesero</button></div>
+      <div id="mesl"></div>
+    </section>
+
+    <section id="t-qr" hidden>
+      <div class="bar noprint"><label for="nm" style="color:var(--mut)">Cantidad de mesas</label><input id="nm" inputmode="numeric" style="max-width:100px"><button id="qs">Guardar</button><button class="y" id="qp">Imprimir QR</button></div>
+      <div class="qrs" id="qrs"></div>
+    </section>
+  </main>
+</div>
+
+<dialog id="dlg">
+  <div class="top"><h2 id="dt" style="margin:0">Nuevo pedido</h2><button id="dx" type="button">Cerrar</button></div>
+  <div class="f" id="datos">
+    <label>Tipo<select id="tipo"><option value="mesa">Mesa</option><option value="llevar">Para llevar</option><option value="domicilio">Domicilio</option></select></label>
+    <label id="lmesa">Mesa<input id="mesa" inputmode="numeric" maxlength="10"></label>
+    <label>Cliente<input id="cli" maxlength="80" value="Cliente en local"></label>
+    <label>Mesero<select id="mes"><option value="">Sin asignar</option></select></label>
+    <label>Medio de pago<select id="mp2"><option value="efectivo">Efectivo</option><option value="tarjeta">Tarjeta / datáfono</option><option value="transferencia">Transferencia</option></select></label>
+    <label id="lpc">Paga con<input id="pc" inputmode="numeric"></label>
+    <label style="grid-column:1/-1">Notas<textarea id="nt" maxlength="300"></textarea></label>
+    <label style="grid-template-columns:auto 1fr;align-items:center"><input id="pr" type="checkbox" style="width:24px;min-height:24px"> Incluir propina 10%</label>
+  </div>
+  <input id="q" type="search" placeholder="Buscar plato" aria-label="Buscar plato">
+  <div class="pk" id="pk"></div>
+  <h2 style="margin-top:6px">Pedido</h2>
+  <div id="bk"></div>
+  <div class="tot"><span>Total estimado</span><b id="est">$0</b></div>
+  <button class="y" id="env" style="width:100%">Enviar a cocina</button>
+</dialog>
+
+<dialog id="dc">
+  <h2 style="margin:0 0 8px">Cancelar pedido</h2>
+  <label style="display:grid;gap:6px;color:var(--mut)">Motivo (obligatorio)<textarea id="mot" maxlength="200"></textarea></label>
+  <div class="acts" style="margin-top:10px"><button class="r" id="cok">Cancelar pedido</button><button id="cno">Volver</button></div>
+</dialog>
+
+<script src="qrcode.js"></script>
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const COP = n => '$' + Number(n || 0).toLocaleString('es-CO');
+const hoy = () => new Date(Date.now() - 5 * 36e5).toISOString().slice(0, 10);
+const hora = iso => new Date(iso).toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Bogota' });
+const EST = { nuevo: 'Nuevo', en_cocina: 'En cocina', listo: 'Listo', entregado: 'Entregado', cancelado: 'Cancelado' };
+const MEDIO = { efectivo: 'Efectivo', tarjeta: 'Tarjeta', transferencia: 'Transferencia' };
+let PED = [], MENU = [], MES = [], FILT = 'todos', cart = new Map(), mode = 'nuevo', target = null, timer = null, TAB = 'pedidos';
+
+async function api(path, o = {}) {
+  let r; try { r = await fetch(path, { credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, ...o }); } catch { return { s: 0, j: {} }; }
+  let j = {}; try { j = await r.json(); } catch {}
+  if (r.status === 401) showLogin();
+  return { s: r.status, j };
+}
+function toast(m, ok) { const t = document.createElement('div'); t.className = 'toast' + (ok ? ' ok' : ''); t.textContent = m; t.setAttribute('role', 'alert'); document.body.appendChild(t); setTimeout(() => t.remove(), 3500); }
+function showLogin() { clearInterval(timer); $('#app').hidden = true; $('#login').hidden = false; $('#pw').value = ''; $('#pw').focus(); }
+async function enter() {
+  $('#login').hidden = true; $('#app').hidden = false; $('#fecha').value = hoy();
+  const [m, c] = await Promise.all([api('/api/admin/meseros'), api('/api/menu')]);
+  MES = m.j.meseros || []; fillMes();
+  MENU = (c.j.categorias || []).flatMap(k => k.platos);
+  clearInterval(timer); timer = setInterval(() => { if (document.visibilityState === 'visible' && TAB === 'pedidos' && !$('#dlg').open) loadPed(); }, 20000);
+  tab('pedidos');
+}
+function tab(n) {
+  TAB = n; $$('[data-tab]').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === n));
+  ['pedidos', 'resumen', 'menu', 'meseros', 'qr'].forEach(k => $('#t-' + k).hidden = k !== n);
+  $('main > .bar').hidden = !['pedidos', 'resumen'].includes(n);
+  ({ pedidos: loadPed, resumen: loadResumen, menu: loadMenu, meseros: loadMes, qr: loadQR })[n]();
+}
+/* ---------- Pedidos ---------- */
+async function loadPed() {
+  const { s, j } = await api('/api/pedidos?fecha=' + $('#fecha').value);
+  if (s !== 200) return s !== 401 && toast('No se pudieron cargar los pedidos');
+  PED = (j.pedidos || []).sort((a, b) => b.numero_dia - a.numero_dia); drawPed();
+}
+function drawPed() {
+  const f = { todos: p => true, por_cobrar: p => !p.pagado && p.estado !== 'cancelado' };
+  const ok = p => (f[FILT] || (x => x.estado === FILT))(p);
+  const cnt = k => PED.filter(p => (f[k] || (x => x.estado === k))(p)).length;
+  const K = { todos: 'Todos', nuevo: 'Nuevos', en_cocina: 'En cocina', listo: 'Listos', entregado: 'Entregados', por_cobrar: 'Por cobrar', cancelado: 'Cancelados' };
+  $('#chips').innerHTML = Object.keys(K).map(k => `<button class="chip" data-f="${k}" aria-pressed="${FILT === k}">${K[k]} ${cnt(k)}</button>`).join('');
+  const L = PED.filter(ok);
+  $('#lista').innerHTML = L.length ? L.map(card).join('') : '<p style="color:var(--mut)">No hay pedidos en esta vista.</p>';
+}
+function card(p) {
+  const vivo = p.estado !== 'cancelado', abierto = ['nuevo', 'en_cocina', 'listo'].includes(p.estado);
+  const items = (p.items || []).map(i => `<li>${i.cantidad}× ${esc(i.nombre)}${i.es_adicion ? ' <span class="tag a">ADICIÓN</span>' : ''}${i.observacion ? `<em>${esc(i.observacion)}</em>` : ''}</li>`).join('');
+  const t = p.tipo === 'mesa' ? 'Mesa ' + esc(p.mesa) : p.tipo === 'llevar' ? 'Para llevar' : 'Domicilio';
+  const pago = !vivo ? `<small style="color:var(--bad)">Motivo: ${esc(p.motivo_cancelacion)}</small>`
+    : p.pagado ? `<span class="tag ok">Pagado · ${MEDIO[p.medio_pago] || ''}</span>`
+    : `<select data-m="${esc(p.id)}" aria-label="Medio de pago">${Object.keys(MEDIO).map(m => `<option value="${m}"${m === p.medio_pago ? ' selected' : ''}>${MEDIO[m]}</option>`).join('')}</select><button class="y" data-pay="${esc(p.id)}">Marcar pagado</button>`;
+  return `<article class="card e-${p.estado}">
+    <div class="top"><span class="num">#${p.numero_dia}</span><span>${EST[p.estado]}</span></div>
+    <div class="meta">${hora(p.creado_en)} · ${t} · ${esc(p.cliente_nombre)}${p.mesero_nombre ? ' · ' + esc(p.mesero_nombre) : ''} <span class="tag${p.origen === 'dueno' ? ' d' : ''}">${p.origen === 'dueno' ? 'Dueño' : 'Cliente'}</span></div>
+    <ul>${items}</ul>${p.notas ? `<div class="meta">Notas: ${esc(p.notas)}</div>` : ''}
+    <div class="tot"><span>Total${p.propina ? ' (con propina)' : ''}</span><b>${COP(p.total)}</b></div>
+    <div class="acts">${pago}${abierto ? `<button data-add="${esc(p.id)}">Agregar platos</button>` : ''}${vivo && p.estado !== 'entregado' ? `<button class="r" data-cx="${esc(p.id)}">Cancelar</button>` : ''}</div>
+  </article>`;
+}
+/* ---------- Crear pedido / agregar platos ---------- */
+function openDlg(m, p) {
+  mode = m; target = p; cart.clear(); $('#q').value = '';
+  $('#dt').textContent = m === 'nuevo' ? 'Nuevo pedido' : 'Agregar platos al #' + p.numero_dia;
+  $('#datos').hidden = m !== 'nuevo'; $('#env').textContent = m === 'nuevo' ? 'Enviar a cocina' : 'Agregar al pedido';
+  if (m === 'nuevo') { $('#tipo').value = 'mesa'; $('#mesa').value = ''; $('#cli').value = 'Cliente en local'; $('#mes').value = ''; $('#mp2').value = 'efectivo'; $('#pc').value = ''; $('#nt').value = ''; $('#pr').checked = false; fields(); }
+  pick(); basket(); $('#dlg').showModal();
+}
+function fields() { $('#lmesa').hidden = $('#tipo').value !== 'mesa'; $('#lpc').hidden = $('#mp2').value !== 'efectivo'; }
+function pick() {
+  const q = $('#q').value.toLowerCase();
+  $('#pk').innerHTML = MENU.filter(p => p.nombre_es.toLowerCase().includes(q)).map(p => `<div class="row"><span>${esc(p.nombre_es)} <small style="color:var(--mut)">${COP(p.precio)}</small></span>${p.disponible ? `<button data-p="${esc(p.id)}" aria-label="Agregar ${esc(p.nombre_es)}">+</button>` : '<small style="color:var(--bad)">Agotado</small>'}</div>`).join('');
+}
+function basket() {
+  let t = 0;
+  $('#bk').innerHTML = cart.size ? [...cart].map(([id, v]) => { const p = MENU.find(x => x.id === id); t += p.precio * v.n;
+    return `<div class="row"><span style="flex:1">${esc(p.nombre_es)}<input data-o="${esc(id)}" placeholder="Observación (opcional)" maxlength="120" value="${esc(v.obs)}"></span><span class="qty"><button data-q="${esc(id)}" data-d="-1" aria-label="Quitar uno">−</button><b>${v.n}</b><button data-q="${esc(id)}" data-d="1" aria-label="Agregar uno">+</button></span></div>`; }).join('')
+    : '<p style="color:var(--mut)">Aún no hay platos. Búscalos arriba y toca +.</p>';
+  if (mode === 'nuevo' && $('#pr').checked) t = Math.round(t * 1.1);
+  $('#est').textContent = COP(t);
+}
+async function enviar() {
+  if (!cart.size) return toast('Agrega al menos un plato');
+  const items = [...cart].map(([plato_id, v]) => ({ plato_id, cantidad: v.n, observacion: v.obs.trim() || undefined }));
+  let r;
+  if (mode === 'nuevo') {
+    const tipo = $('#tipo').value, mesa = $('#mesa').value.trim();
+    if (tipo === 'mesa' && !mesa) return toast('Escribe el número de mesa');
+    const pc = parseInt($('#pc').value.replace(/\D/g, ''), 10);
+    r = await api('/api/admin/pedidos', { method: 'POST', body: JSON.stringify({ tipo, mesa: tipo === 'mesa' ? mesa : undefined, cliente_nombre: $('#cli').value.trim() || 'Cliente en local', mesero_id: $('#mes').value || undefined, medio_pago: $('#mp2').value, paga_con: $('#mp2').value === 'efectivo' && pc ? pc : undefined, propina: $('#pr').checked, notas: $('#nt').value.trim() || undefined, items }) });
+  } else r = await api('/api/pedidos/' + encodeURIComponent(target.id) + '/items', { method: 'POST', body: JSON.stringify({ items }) });
+  if (r.s === 200 || r.s === 201) { $('#dlg').close(); toast(mode === 'nuevo' ? 'Pedido #' + r.j.numero + ' enviado a cocina' : 'Platos agregados; cocina los verá resaltados', true); loadPed(); }
+  else if (r.s !== 401) toast(r.j.error || 'No se pudo guardar el pedido');
+}
+/* ---------- Resumen ---------- */
+async function loadResumen() {
+  const { s, j } = await api('/api/admin/resumen?fecha=' + $('#fecha').value);
+  if (s !== 200) return s !== 401 && toast('No se pudo cargar el resumen');
+  const r = j.resumen, cob = r.por_medio_pago.reduce((a, m) => a + m.total_cobrado, 0), T = (l, v) => `<div class="tile"><small>${l}</small><b>${v}</b></div>`;
+  $('#tiles').innerHTML = T('Ventas del día', COP(r.ventas_totales)) + T('Cobrado', COP(cob)) + T('Por cobrar', COP(r.ventas_totales - cob)) + T('Pedidos', r.total_pedidos) + T('Ticket promedio', COP(r.ticket_promedio)) + T('Propinas', COP(r.propinas_totales)) + T('Cancelados', r.pedidos_cancelados);
+  const tb = (h, rows) => rows.length ? `<table><tr>${h.map((x, i) => `<th class="${i ? 'n' : ''}">${x}</th>`).join('')}</tr>${rows.map(c => `<tr>${c.map((x, i) => `<td class="${i ? 'n' : ''}">${x}</td>`).join('')}</tr>`).join('')}</table>` : '<p style="color:var(--mut)">Sin ventas este día.</p>';
+  $('#mp').innerHTML = tb(['Medio', 'Pedidos', 'Vendido', 'Cobrado'], r.por_medio_pago.map(m => [MEDIO[m.medio_pago] || esc(m.medio_pago), m.pedidos, COP(m.total), COP(m.total_cobrado)]));
+  $('#ms').innerHTML = tb(['Mesero', 'Pedidos', 'Vendido'], r.por_mesero.map(m => [esc(m.mesero), m.pedidos, COP(m.total)]));
+  const [rp, cj] = await Promise.all([api('/api/admin/reportes'), api('/api/admin/cierre-caja?fecha=' + $('#fecha').value)]);
+  $('#top').innerHTML = tb(['Plato', 'Unidades', 'Ingresos'], (rp.j.platos_mas_vendidos || []).slice(0, 10).map(x => [esc(x.nombre), x.total_unidades, COP(x.ingresos_generados)]));
+  $('#hp').innerHTML = tb(['Hora', 'Pedidos', 'Vendido'], (rp.j.horas_pico || []).map(x => [esc(x.franja_horaria), x.total_pedidos, COP(x.total_ventas)]));
+  const t = cj.j.totales_actuales || {}, pv = cj.j.cierre_previo;
+  $('#caja').innerHTML = `<div class="tiles">${T('Efectivo esperado', COP(t.total_efectivo))}${T('Tarjeta', COP(t.total_tarjeta))}${T('Transferencia', COP(t.total_transferencia))}</div>`
+    + (pv ? `<p>Caja ya cerrada: contado ${COP(pv.efectivo_contado)} · diferencia ${COP(pv.diferencia)}</p>` : '')
+    + `<div class="f"><label>Efectivo contado<input id="ec" inputmode="numeric"></label><label>Notas<input id="en" maxlength="200"></label></div><button class="y" id="cc">${pv ? 'Volver a cerrar caja' : 'Cerrar caja'}</button>`;
+}
+/* ---------- Menú ---------- */
+let CAT = [], PL = [];
+async function reloadMenu() { const c = await api('/api/menu'); MENU = (c.j.categorias || []).flatMap(k => k.platos); }
+async function loadMenu() {
+  const [c, p] = await Promise.all([api('/api/admin/categorias'), api('/api/admin/platos')]);
+  CAT = c.j.categorias || []; PL = (p.j.platos || []).filter(x => x.activo);
+  const keep = $('#mc').value, opts = CAT.map(k => `<option value="${esc(k.id)}">${esc(k.nombre_es)}</option>`).join('');
+  $('#mc').innerHTML = '<option value="">Todas las categorías</option>' + opts; $('#mc').value = keep; $('#nc').innerHTML = opts; drawMenu();
+}
+function drawMenu() {
+  const k = $('#mc').value, q = $('#mq').value.toLowerCase();
+  $('#ml').innerHTML = PL.filter(p => (!k || p.categoria_id === k) && p.nombre_es.toLowerCase().includes(q)).map(p => `<div class="row mr" data-id="${esc(p.id)}"><input data-k="nombre_es" value="${esc(p.nombre_es)}" aria-label="Nombre"><input data-k="precio" inputmode="numeric" value="${p.precio}" aria-label="Precio" style="max-width:110px"><label><input type="checkbox" data-k="disponible"${p.disponible ? ' checked' : ''}>Disp.</label><label><input type="checkbox" data-k="promo"${p.promo ? ' checked' : ''}>Promo</label><button class="y" data-sv>Guardar</button><button class="r" data-rm>Quitar</button></div>`).join('') || '<p style="color:var(--mut)">Sin resultados.</p>';
+}
+/* ---------- Meseros ---------- */
+function fillMes() { $('#mes').innerHTML = '<option value="">Sin asignar</option>' + MES.map(x => `<option value="${x.id}">${esc(x.nombre)}</option>`).join(''); }
+async function loadMes() {
+  const { j } = await api('/api/admin/meseros'); MES = j.meseros || []; fillMes();
+  $('#mesl').innerHTML = MES.map(m => `<div class="row"><span>${esc(m.nombre)}${m.codigo ? ` <small style="color:var(--mut)">· ${esc(m.codigo)}</small>` : ''}</span><button class="r" data-mx="${m.id}">Desactivar</button></div>`).join('') || '<p style="color:var(--mut)">Aún no hay meseros.</p>';
+}
+/* ---------- QR por mesa ---------- */
+async function loadQR() { const { j } = await api('/api/admin/ajustes'); const n = parseInt(j.ajustes && j.ajustes.cantidad_mesas, 10) || 20; $('#nm').value = n; drawQR(n); }
+function drawQR(n) {
+  $('#qrs').innerHTML = Array.from({ length: Math.min(n, 200) }, (_, i) => { const q = qrcode(0, 'M'); q.addData(location.origin + '/?mesa=' + (i + 1)); q.make(); return `<div class="qrc">${q.createSvgTag(4, 2)}<b>Mesa ${i + 1}</b><small>Escanea y pide desde tu celular</small></div>`; }).join('');
+}
+document.addEventListener('click', async e => {
+  const t = e.target, b = t.closest('button'); if (!b) return;
+  const done = (r, ok, fn) => r.s === 200 || r.s === 201 ? (toast(ok, true), fn && fn()) : r.s !== 401 && toast(r.j.error || 'No se pudo guardar');
+  if (b.dataset.sv !== undefined) {
+    const row = b.closest('.mr'), g = k => row.querySelector(`[data-k="${k}"]`), precio = parseInt(g('precio').value.replace(/\D/g, ''), 10);
+    if (!g('nombre_es').value.trim() || !precio) return toast('Escribe un nombre y un precio válidos');
+    done(await api('/api/admin/platos', { method: 'PATCH', body: JSON.stringify({ id: row.dataset.id, nombre_es: g('nombre_es').value.trim(), precio, disponible: +g('disponible').checked, promo: +g('promo').checked }) }), 'Plato guardado', () => { loadMenu(); reloadMenu(); });
+  } else if (b.dataset.rm !== undefined) {
+    const row = b.closest('.mr'); if (!confirm('¿Quitar este plato de la carta?')) return;
+    done(await api('/api/admin/platos', { method: 'PATCH', body: JSON.stringify({ id: row.dataset.id, activo: 0 }) }), 'Plato quitado', () => { loadMenu(); reloadMenu(); });
+  } else if (b.id === 'na') {
+    const nombre = $('#nn').value.trim(), precio = parseInt($('#np').value.replace(/\D/g, ''), 10);
+    if (!nombre || !precio) return toast('Escribe el nombre y el precio');
+    const id = nombre.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Date.now().toString(36).slice(-4);
+    done(await api('/api/admin/platos', { method: 'POST', body: JSON.stringify({ id, categoria_id: $('#nc').value, nombre_es: nombre, precio }) }), 'Plato agregado', () => { $('#nn').value = ''; $('#np').value = ''; loadMenu(); reloadMenu(); });
+  } else if (b.id === 'ma') {
+    const nombre = $('#mn').value.trim(); if (!nombre) return toast('Escribe el nombre del mesero');
+    done(await api('/api/admin/meseros', { method: 'POST', body: JSON.stringify({ nombre, codigo: $('#mcod').value.trim() || undefined }) }), 'Mesero agregado', () => { $('#mn').value = ''; $('#mcod').value = ''; loadMes(); });
+  } else if (b.dataset.mx) {
+    done(await api('/api/admin/meseros', { method: 'PATCH', body: JSON.stringify({ id: +b.dataset.mx, activo: 0 }) }), 'Mesero desactivado', loadMes);
+  } else if (b.id === 'qs') {
+    const n = parseInt($('#nm').value, 10); if (!(n >= 1 && n <= 200)) return toast('Escribe un número de mesas entre 1 y 200');
+    done(await api('/api/admin/ajustes', { method: 'PATCH', body: JSON.stringify({ cantidad_mesas: n }) }), 'Cantidad de mesas guardada', () => drawQR(n));
+  } else if (b.id === 'qp') window.print();
+  else if (b.id === 'cc') {
+    const ec = parseInt($('#ec').value.replace(/\D/g, ''), 10); if (isNaN(ec)) return toast('Escribe el efectivo contado');
+    const r = await api('/api/admin/cierre-caja', { method: 'POST', body: JSON.stringify({ fecha: $('#fecha').value, efectivo_contado: ec, notas: $('#en').value.trim() || undefined }) });
+    done(r, 'Caja cerrada. Diferencia: ' + COP((r.j.cierre || r.j).diferencia), loadResumen);
+  }
+});
+$('#mc').onchange = $('#mq').oninput = drawMenu;
+/* ---------- Eventos ---------- */
+document.addEventListener('click', async e => {
+  const t = e.target, g = a => t.closest(`[${a}]`);
+  let b;
+  if ((b = g('data-tab'))) tab(b.dataset.tab);
+  else if ((b = g('data-f'))) { FILT = b.dataset.f; drawPed(); }
+  else if ((b = g('data-pay'))) {
+    const id = b.dataset.pay, m = $(`[data-m="${CSS.escape(id)}"]`).value; b.disabled = true;
+    const r = await api('/api/pedidos/' + encodeURIComponent(id) + '/pago', { method: 'PATCH', body: JSON.stringify({ pagado: true, medio_pago: m }) });
+    r.s === 200 ? loadPed() : (b.disabled = false, r.s !== 401 && toast(r.j.error || 'No se pudo marcar pagado'));
+  }
+  else if ((b = g('data-add'))) openDlg('adicion', PED.find(p => p.id === b.dataset.add));
+  else if ((b = g('data-cx'))) { target = PED.find(p => p.id === b.dataset.cx); $('#mot').value = ''; $('#dc').showModal(); }
+  else if ((b = g('data-p'))) { const c = cart.get(b.dataset.p) || { n: 0, obs: '' }; c.n++; cart.set(b.dataset.p, c); basket(); }
+  else if ((b = g('data-q'))) { const c = cart.get(b.dataset.q); c.n += +b.dataset.d; c.n < 1 ? cart.delete(b.dataset.q) : c.n > 20 && (c.n = 20); basket(); }
+});
+document.addEventListener('input', e => { if (e.target.dataset.o) cart.get(e.target.dataset.o).obs = e.target.value; });
+$('#nuevo').onclick = () => openDlg('nuevo');
+$('#dx').onclick = () => $('#dlg').close();
+$('#q').oninput = pick;
+['tipo', 'mp2'].forEach(i => $('#' + i).onchange = fields); $('#pr').onchange = basket;
+$('#env').onclick = enviar;
+$('#fecha').onchange = () => tab(TAB);
+$('#cno').onclick = () => $('#dc').close();
+$('#cok').onclick = async () => {
+  const motivo = $('#mot').value.trim(); if (!motivo) return toast('Escribe el motivo');
+  const r = await api('/api/pedidos/' + encodeURIComponent(target.id) + '/pago', { method: 'PATCH', body: JSON.stringify({ cancelar: true, motivo }) });
+  if (r.s === 200) { $('#dc').close(); toast('Pedido cancelado', true); loadPed(); } else if (r.s !== 401) toast(r.j.error || 'No se pudo cancelar');
+};
+$('#out').onclick = async () => { await api('/api/logout', { method: 'POST' }); showLogin(); };
+$('#lf').onsubmit = async e => {
+  e.preventDefault();
+  const { s, j } = await api('/api/login', { method: 'POST', body: JSON.stringify({ rol: 'dueno', clave: $('#pw').value }) });
+  if (s === 200) { $('#err').textContent = ''; enter(); }
+  else $('#err').textContent = s === 429 ? (j.error || 'Demasiados intentos. Espera unos minutos.') : s === 401 ? 'Clave incorrecta' : 'Sin conexión con el servidor';
+};
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && !$('#app').hidden && TAB === 'pedidos') loadPed(); });
+(async () => { const r = await api('/api/admin/resumen'); if (r.s === 200) enter(); })();
+</script>
+</body>
+</html>

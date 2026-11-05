@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Cocina | El Parche</title>
+<link rel="icon" href="/assets/logo-sm.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090B;--s1:#131317;--s2:#1C1C24;--ln:#2a2a35;--y:#FFE500;--o:#FF9E00;--ok:#3DDC84;--bad:#FF4D4D;--tx:#F4F4F5;--mut:#9a9aa6;--f:'Inter',system-ui,sans-serif;--d:'Outfit','Inter',system-ui,sans-serif}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 var(--f)}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;min-height:44px;padding:0 16px;color:inherit;background:var(--s2)}
+button:disabled{opacity:.5}
+:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+.login{min-height:100svh;display:grid;place-content:center;justify-items:center;gap:14px;padding:24px;text-align:center}
+.login img{width:96px}.login h1{font:800 2rem var(--d);margin:0}
+.login input,#q{height:56px;border-radius:12px;border:2px solid var(--ln);background:var(--s1);color:var(--tx);font:700 1.6rem var(--d);text-align:center;letter-spacing:.4em;width:240px}
+#q{width:100%;height:44px;font:400 1rem var(--f);letter-spacing:0;text-align:left;padding:0 12px;margin:10px 0}
+.btn-y,.go{background:var(--y);color:#111;font-weight:800}
+.err{color:var(--bad);min-height:1.4em;margin:0}
+header{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top));background:var(--s1);border-bottom:1px solid var(--ln)}
+header h1{font:800 1.3rem var(--d);margin:0 auto 0 0}
+.chip{background:var(--s2);border-radius:99px;padding:6px 12px;font-weight:600}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:14px;align-items:start}
+@media(max-width:900px){.board{grid-template-columns:1fr}}
+.col h2{font:800 1.1rem var(--d);margin:0 0 10px;display:flex;justify-content:space-between}
+.card{background:var(--s1);border:2px solid var(--ln);border-left-width:8px;border-radius:16px;padding:14px;margin-bottom:12px}
+.t-ok{border-left-color:var(--ok)}.t-warn{border-left-color:var(--o)}.t-bad{border-left-color:var(--bad)}
+.flash{animation:fl 1.4s ease-out 2}@keyframes fl{50%{background:#3a3300}}
+@media(prefers-reduced-motion:reduce){.flash{animation:none}}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.num{font:800 2rem var(--d)}.time{font:800 1.3rem var(--d)}
+.t-ok .time{color:var(--ok)}.t-warn .time{color:var(--o)}.t-bad .time{color:var(--bad)}
+.meta{color:var(--mut);margin:2px 0 8px}
+.tag{display:inline-block;border-radius:6px;padding:1px 8px;font-size:.8rem;font-weight:800;background:var(--y);color:#111}
+.tag.d{background:var(--o)}.tag.a{background:#fff}
+ul{list-style:none;margin:0 0 10px;padding:0}li{padding:6px 0;border-top:1px dashed var(--ln)}
+li b{font:800 1.2rem var(--d);margin-right:8px}li em{display:block;color:var(--y);font-style:normal}
+.note{background:var(--s2);border-radius:8px;padding:6px 10px;margin-bottom:10px}
+.go{width:100%;font-size:1.05rem}.go.l{background:var(--ok)}.go.e{background:var(--s2);color:var(--tx);border:2px solid var(--ln)}
+.empty{color:var(--mut);padding:12px}
+dialog{background:var(--s1);color:var(--tx);border:1px solid var(--ln);border-radius:16px;width:min(560px,94vw);max-height:86vh;padding:16px}
+dialog::backdrop{background:#000b}
+.pl{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--ln)}
+.pl.off span{text-decoration:line-through;color:var(--mut)}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--bad);padding:10px 16px;border-radius:12px;font-weight:600;z-index:9}
+</style>
+</head>
+<body>
+<main id="login" class="login">
+  <img src="/assets/logo-sm.webp" alt="El Parche">
+  <h1>Cocina</h1>
+  <form id="lf" style="display:grid;gap:12px;justify-items:center">
+    <input id="pin" type="password" inputmode="numeric" autocomplete="off" aria-label="PIN de cocina" required>
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn-y" style="width:240px">Entrar</button>
+  </form>
+</main>
+
+<div id="app" hidden>
+  <header>
+    <h1>Cocina</h1>
+    <span class="chip" id="cnt">0 activos</span>
+    <button id="snd">Sonido: activado</button>
+    <button id="ago">Agotados</button>
+    <button id="out">Salir</button>
+  </header>
+  <div class="board">
+    <section class="col"><h2>Nuevos <span id="c1"></span></h2><div id="k1"></div></section>
+    <section class="col"><h2>En cocina <span id="c2"></span></h2><div id="k2"></div></section>
+    <section class="col"><h2>Listos para entregar <span id="c3"></span></h2><div id="k3"></div></section>
+  </div>
+</div>
+
+<dialog id="dlg">
+  <div class="top"><h2 style="font:800 1.2rem var(--d);margin:0">Platos agotados</h2><button id="dx">Cerrar</button></div>
+  <input id="q" type="search" placeholder="Buscar plato" aria-label="Buscar plato">
+  <div id="pl"></div>
+</dialog>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let P = new Map(), since = null, off = 0, snd = true, ac = null, timer = null, first = true, MENU = [];
+
+async function api(path, o = {}) {
+  let r;
+  try { r = await fetch(path, { credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, ...o }); }
+  catch { return { s: 0, j: {} }; }
+  let j = {}; try { j = await r.json(); } catch {}
+  if (r.status === 401) showLogin();
+  return { s: r.status, j };
+}
+function toast(m) {
+  const t = document.createElement('div'); t.className = 'toast'; t.textContent = m; t.setAttribute('role', 'alert');
+  document.body.appendChild(t); setTimeout(() => t.remove(), 3500);
+}
+function beep() {
+  if (!snd || !ac) return;
+  try {
+    if (ac.state === 'suspended') ac.resume();
+    [0, .22].forEach(d => {
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.frequency.value = d ? 988 : 784; g.gain.value = .25;
+      o.connect(g); g.connect(ac.destination); o.start(ac.currentTime + d); o.stop(ac.currentTime + d + .18);
+    });
+  } catch {}
+}
+function showLogin() {
+  clearInterval(timer); $('#app').hidden = true; $('#login').hidden = false; $('#pin').value = ''; $('#pin').focus();
+}
+async function enter() {
+  $('#login').hidden = true; $('#app').hidden = false;
+  first = true; since = null; P.clear();
+  await poll();
+  clearInterval(timer); timer = setInterval(poll, 5000);
+}
+async function poll() {
+  if (document.visibilityState !== 'visible' && !first) return;
+  const { s, j } = await api('/api/pedidos' + (since ? '?desde=' + encodeURIComponent(since) : ''));
+  if (s !== 200 || !j.ok) { if (s !== 401) toast('Sin conexión. Reintentando…'); return; }
+  off = Date.parse(j.server_time) - Date.now(); since = j.server_time;
+  let nuevo = false;
+  for (const p of j.pedidos) {
+    if (!P.has(p.id) && p.estado === 'nuevo' && !first) { p._flash = 1; nuevo = true; }
+    P.set(p.id, p);
+  }
+  first = false; if (nuevo) beep(); draw();
+}
+const TIPO = p => p.tipo === 'mesa' ? 'Mesa ' + esc(p.mesa) : p.tipo === 'llevar' ? 'Para llevar' : 'Domicilio';
+const NEXT = { nuevo: ['en_cocina', 'Empezar a preparar', ''], en_cocina: ['listo', 'Marcar listo', ' l'], listo: ['entregado', 'Entregado', ' e'] };
+function card(p) {
+  const ref = p.estado === 'listo' ? p.actualizado_en : p.creado_en;
+  const mins = Math.max(0, Math.floor((Date.now() + off - Date.parse(ref)) / 6e4));
+  const cls = p.estado === 'listo' || mins < 10 ? ' t-ok' : mins < 20 ? ' t-warn' : ' t-bad';
+  const [nx, lbl, c] = NEXT[p.estado];
+  const items = (p.items || []).map(i => `<li><b>${i.cantidad}×</b>${esc(i.nombre)}${i.es_adicion ? ' <span class="tag a">ADICIÓN</span>' : ''}${i.observacion ? `<em>${esc(i.observacion)}</em>` : ''}</li>`).join('');
+  return `<article class="card${cls}${p._flash ? ' flash' : ''}">
+    <div class="top"><span class="num">#${p.numero_dia}</span><span class="time">${mins} min</span></div>
+    <div class="meta">${TIPO(p)} · ${esc(p.cliente_nombre)} <span class="tag${p.origen === 'dueno' ? ' d' : ''}">${p.origen === 'dueno' ? 'Dueño' : 'Cliente'}</span></div>
+    <ul>${items}</ul>
+    ${p.notas ? `<div class="note">${esc(p.notas)}</div>` : ''}
+    <div class="meta">Pago: ${esc(p.medio_pago)}${p.pagado ? ' (pagado)' : ''}</div>
+    <button class="go${c}" data-go="${nx}" data-id="${esc(p.id)}">${lbl}</button>
+  </article>`;
+}
+function draw() {
+  const L = { nuevo: [], en_cocina: [], listo: [] };
+  for (const p of P.values()) if (L[p.estado]) L[p.estado].push(p);
+  let n = 0;
+  ['nuevo', 'en_cocina', 'listo'].forEach((e, i) => {
+    const a = L[e].sort((x, y) => x.creado_en < y.creado_en ? -1 : 1);
+    n += a.length; $('#c' + (i + 1)).textContent = a.length;
+    $('#k' + (i + 1)).innerHTML = a.length ? a.map(card).join('') : '<p class="empty">Sin pedidos</p>';
+  });
+  $('#cnt').textContent = n + (n === 1 ? ' activo' : ' activos');
+  P.forEach(p => p._flash = 0);
+}
+document.addEventListener('click', async e => {
+  const g = e.target.closest('[data-go]');
+  if (g) {
+    g.disabled = true;
+    const { s, j } = await api('/api/pedidos/' + encodeURIComponent(g.dataset.id) + '/estado', { method: 'PATCH', body: JSON.stringify({ nuevo_estado: g.dataset.go }) });
+    if (s === 200) { const p = P.get(g.dataset.id); p.estado = g.dataset.go; p.actualizado_en = new Date(Date.now() + off).toISOString(); draw(); }
+    else { g.disabled = false; if (s !== 401) toast(j.error || 'No se pudo cambiar el estado'); }
+    return;
+  }
+  const a = e.target.closest('[data-av]');
+  if (a) {
+    const on = a.dataset.on === '1';
+    const { s, j } = await api('/api/platos/' + encodeURIComponent(a.dataset.av) + '/disponible', { method: 'PATCH', body: JSON.stringify({ disponible: !on }) });
+    if (s === 200) { MENU.find(p => p.id === a.dataset.av).disponible = on ? 0 : 1; listPl(); }
+    else if (s !== 401) toast(j.error || 'No se pudo actualizar el plato');
+  }
+});
+function listPl() {
+  const q = $('#q').value.toLowerCase();
+  $('#pl').innerHTML = MENU.filter(p => p.nombre_es.toLowerCase().includes(q)).map(p => {
+    const on = !!p.disponible;
+    return `<div class="pl${on ? '' : ' off'}"><span>${esc(p.nombre_es)}</span><button data-av="${esc(p.id)}" data-on="${on ? 1 : 0}">${on ? 'Marcar agotado' : 'Habilitar'}</button></div>`;
+  }).join('');
+}
+$('#ago').onclick = async () => {
+  const { s, j } = await api('/api/menu');
+  if (s !== 200) return toast('No se pudo cargar el menú');
+  MENU = j.categorias.flatMap(c => c.platos); $('#q').value = ''; listPl(); $('#dlg').showModal();
+};
+$('#dx').onclick = () => $('#dlg').close();
+$('#q').oninput = listPl;
+$('#snd').onclick = () => { snd = !snd; $('#snd').textContent = 'Sonido: ' + (snd ? 'activado' : 'apagado'); if (snd) beep(); };
+$('#out').onclick = async () => { await api('/api/logout', { method: 'POST' }); showLogin(); };
+$('#lf').onsubmit = async e => {
+  e.preventDefault();
+  try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); } catch { snd = false; $('#snd').textContent = 'Sonido: no disponible'; }
+  const pin = $('#pin').value;
+  const { s, j } = await api('/api/login', { method: 'POST', body: JSON.stringify({ rol: 'cocina', clave: pin }) });
+  if (s === 200) { $('#err').textContent = ''; enter(); }
+  else $('#err').textContent = s === 429 ? (j.error || 'Demasiados intentos. Espera unos minutos.') : s === 401 ? 'PIN incorrecto' : 'Sin conexión con el servidor';
+};
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && !$('#app').hidden) poll(); });
+setInterval(() => { if (!$('#app').hidden) draw(); }, 30000);
+(async () => { const r = await api('/api/pedidos'); if (r.s === 200) enter(); })();
+</script>
+</body>
+</html>
