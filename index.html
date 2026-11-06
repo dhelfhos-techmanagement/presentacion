@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jose Arias | Diseñador UI/UX</title>
+<title>DHELFHOS | Branding Tech & Menús Digitales</title>
 <style>
   :root{
     --bg:#0a0a14;
@@ -12,6 +12,7 @@
     --purple:#7c5cff;
     --blue:#4d7fff;
     --grad: linear-gradient(90deg,#7c5cff,#4d7fff);
+    --gold: #d4af37;
     --text:#f2f2f7;
     --muted:#9797ab;
   }
@@ -57,31 +58,30 @@
     color:var(--muted);font-size:1.1rem;
   }
   .hero-photo-wrap{
-    position:relative;overflow:hidden;
+    position:relative;overflow:hidden;background:#06060c;text-align:center;padding:24px 16px 0;
   }
   .hero-photo-wrap img{
-    width:100%;height:420px;object-fit:cover;object-position:top center;
-    display:block;
+    max-width:240px;width:100%;height:auto;margin:0 auto;display:block;
   }
   .hero-photo-wrap::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(0deg, var(--bg) 0%, rgba(10,10,20,0.1) 55%, rgba(10,10,20,0) 100%);
+    background:linear-gradient(0deg, var(--bg) 0%, rgba(10,10,20,0.1) 60%, rgba(10,10,20,0) 100%);
   }
   .hero-text{
-    padding:0 24px;margin-top:-70px;position:relative;z-index:2;
+    padding:0 24px;margin-top:-20px;position:relative;z-index:2;
   }
-  .hero-greet{font-size:1.6rem;font-weight:700;}
+  .hero-greet{font-size:1rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1px;}
   .hero-name{font-size:2.2rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15;}
-  .hero-role{font-size:1.5rem;font-weight:700;margin-bottom:14px;}
-  .hero-desc{color:var(--muted);font-size:0.92rem;margin-bottom:22px;max-width:400px;}
-  .hero-actions{display:flex;align-items:center;gap:18px;margin-bottom:8px;flex-wrap:wrap;}
+  .hero-role{font-size:1.1rem;font-weight:700;margin-bottom:12px;color:#fff;}
+  .hero-desc{color:var(--muted);font-size:0.9rem;margin-bottom:20px;max-width:420px;}
+  .hero-actions{display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap;}
   .btn-primary{
-    background:var(--grad);color:#fff;padding:12px 22px;border-radius:24px;
-    font-weight:600;font-size:0.9rem;border:none;cursor:pointer;
+    background:var(--grad);color:#fff;padding:12px 20px;border-radius:24px;
+    font-weight:600;font-size:0.88rem;border:none;cursor:pointer;
     display:inline-block;
   }
   .play-link{
-    display:flex;align-items:center;gap:10px;color:var(--text);font-size:0.9rem;font-weight:500;
+    display:flex;align-items:center;gap:8px;color:var(--text);font-size:0.88rem;font-weight:500;
   }
   .play-icon{
     width:32px;height:32px;border-radius:50%;background:var(--bg-card);
@@ -95,13 +95,12 @@
     background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
     padding:8px 14px;font-size:0.8rem;color:var(--text);display:flex;align-items:center;gap:6px;
   }
-  .about-text p{color:var(--muted);font-size:0.9rem;max-width:340px;}
-  .signature{font-family:'Brush Script MT',cursive;font-size:1.6rem;color:var(--muted);text-align:right;margin-top:-20px;}
+  .about-text p{color:var(--muted);font-size:0.9rem;}
   .stats{display:flex;margin-top:24px;}
-  .stat-col{flex:1;padding-right:14px;border-right:1px solid var(--border);}
+  .stat-col{flex:1;padding-right:10px;border-right:1px solid var(--border);}
   .stat-col:last-child{border-right:none;}
-  .stat-col .num{font-size:1.5rem;font-weight:800;}
-  .stat-col .lbl{color:var(--muted);font-size:0.78rem;}
+  .stat-col .num{font-size:1.4rem;font-weight:800;color:#fff;}
+  .stat-col .lbl{color:var(--muted);font-size:0.75rem;}
   .services-list{display:flex;flex-direction:column;gap:14px;}
   .service-card{
     background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
@@ -139,6 +138,20 @@
   .live-visual{
     position:relative;width:100%;height:100%;overflow:hidden;
   }
+  .plans-img-wrap{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:18px;
+    overflow:hidden;margin-bottom:18px;
+  }
+  .plans-img-wrap img{width:100%;height:auto;display:block;}
+  .demo-buttons{display:flex;flex-direction:column;gap:10px;}
+  .btn-demo{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 18px;border-radius:14px;font-weight:600;font-size:0.88rem;
+    transition:transform .15s ease;
+  }
+  .btn-demo-basic{background:var(--bg-card);border:1px solid var(--border);color:#fff;}
+  .btn-demo-emp{background:rgba(212,175,55,0.12);border:1px solid var(--gold);color:var(--gold);}
+  .btn-demo-prem{background:var(--grad);border:none;color:#fff;}
   .contact-box{
     background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
     padding:32px 24px;position:relative;overflow:hidden;
@@ -180,80 +193,85 @@
 </style>
 </head>
 <body>
+
 <div class="topbar">
   <a class="icon-btn" href="#home">☰</a>
-  <a class="icon-btn" href="#projects">⠿</a>
+  <a class="icon-btn" href="#planes">💳</a>
 </div>
+
 <div class="hero-photo-wrap" id="home">
-  <img src="assets/jose-arias.jpg" alt="Jose Arias">
+  <img src="assets/hero-logo.jpg" alt="DHELFHOS Branding Tech">
 </div>
+
 <div class="hero-text">
-  <p class="hero-greet">Holai'm</p>
-  <h1 class="hero-name">Jose Arias</h1>
-  <h2 class="hero-role">Diseñador UI/UX</h2>
-  <p class="hero-desc">Diseño y construyo productos digitales que son fáciles de usar, modernos e impactantes.</p>
+  <p class="hero-greet">Branding Tech</p>
+  <h1 class="hero-name">DHELFHOS</h1>
+  <h2 class="hero-role">Soluciones Digitales & Marketing</h2>
+  <p class="hero-desc">Desarrollo de páginas web, flyers, menús digitales interactivos por QR, branding y marketing digital integral para tu negocio.</p>
   <div class="hero-actions">
-    <a class="btn-primary" href="#projects">Ver mi trabajo</a>
-    <a class="play-link" href="projects/lamerica/index.html" target="_blank" rel="noopener"><span class="play-icon">▶</span> Ver Showreel</a>
+    <a class="btn-primary" href="#planes">Ver Planes y Precios</a>
+    <a class="play-link" href="#services"><span class="play-icon">↓</span> Servicios</a>
   </div>
 </div>
-<section id="about">
-  <h2 class="section-title">Sobre mí</h2>
-  <div class="title-underline"></div>
-  <div class="about-text">
-    <p>Soy un Diseñador UI/UX apasionado, enfocado en crear diseños limpios, atractivos y centrados en el usuario.</p>
+
+<section id="planes">
+  <div class="section-head">
+    <div>
+      <h2 class="section-title">Planes y Precios</h2>
+      <div class="title-underline"></div>
+    </div>
   </div>
-  <div class="signature">Jose Arias</div>
-  <div class="stats">
-    <div class="stat-col"><div class="num">150+</div><div class="lbl">Clientes felices</div></div>
-    <div class="stat-col"><div class="num">250+</div><div class="lbl">Proyectos hechos</div></div>
-    <div class="stat-col"><div class="num">20+</div><div class="lbl">Premios ganados</div></div>
+
+  <div class="plans-img-wrap">
+    <img src="assets/planes-table.jpg" alt="Planes Básico, Emprendedor y Premium Dhelfhos">
+  </div>
+
+  <div class="demo-buttons">
+    <a class="btn-demo btn-demo-basic" href="projects/malibut/index.html" target="_blank" rel="noopener">
+      <span>Ver Demo Plan Básico <i>(Sin fotos)</i></span>
+      <span>↗</span>
+    </a>
+    <a class="btn-demo btn-demo-emp" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
+      <span>Ver Demo Plan Emprendedor <i>(Con fotos)</i></span>
+      <span>↗</span>
+    </a>
+    <a class="btn-demo btn-demo-prem" href="https://shiny-frost-10dc.dhelfhos.workers.dev/" target="_blank" rel="noopener">
+      <span>Ver Demo Plan Premium <i>(Carrito y Pedidos)</i></span>
+      <span>↗</span>
+    </a>
   </div>
 </section>
+
 <section id="services">
   <div class="section-head">
     <div>
-      <h2 class="section-title">Servicios que ofrezco</h2>
+      <h2 class="section-title">Lo que hacemos</h2>
       <div class="title-underline"></div>
     </div>
     <a class="pill-btn" href="#contact">→</a>
   </div>
   <div class="services-list">
-    <a class="service-card" href="projects/lamerica/index.html" target="_blank" rel="noopener">
-      <div class="service-visual" style="padding:0;">
-        <div class="live-visual">
-          <iframe class="live-thumb" src="projects/lamerica/index.html" tabindex="-1" title="Ejemplo página web"></iframe>
-        </div>
-      </div>
+    <div class="service-card">
       <div class="service-body">
-        <h3>Páginas Web</h3>
-        <p>Sitios modernos, rápidos y responsivos para dar presencia profesional a tu marca.</p>
+        <h3>🌐 Páginas Web & Branding</h3>
+        <p>Presencia digital profesional, rápida y responsiva, enfocada en proyectar la identidad de tu marca.</p>
       </div>
-    </a>
-    <a class="service-card" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
-      <div class="service-visual" style="padding:0;">
-        <div class="live-visual">
-          <iframe class="live-thumb" src="https://dhelfhos-techmanagement.github.io/hawaii/" tabindex="-1" title="Hawaii Lounge Bar"></iframe>
-        </div>
-      </div>
+    </div>
+    <div class="service-card">
       <div class="service-body">
-        <h3>Menús Digitales</h3>
-        <p>Menús interactivos por QR para restaurantes y negocios, fáciles de actualizar.</p>
+        <h3>📲 Menús Digitales Interactivos</h3>
+        <p>Sistemas ágiles por código QR con cartas interactivas, pedidos por WhatsApp y paneles de control.</p>
       </div>
-    </a>
-    <a class="service-card" href="projects/fiorella/index.html" target="_blank" rel="noopener">
-      <div class="service-visual" style="padding:0;">
-        <div class="live-visual">
-          <iframe class="live-thumb" src="projects/fiorella/index.html" tabindex="-1" title="Ejemplo portafolio digital"></iframe>
-        </div>
-      </div>
+    </div>
+    <div class="service-card">
       <div class="service-body">
-        <h3>Portafolios Digitales</h3>
-        <p>Presentaciones visuales de tus productos o trabajos, listas para compartir online.</p>
+        <h3>🎨 Flyers & Marketing Digital</h3>
+        <p>Estrategias visuales y diseño publicitario para destacar en redes sociales y atraer clientes.</p>
       </div>
-    </a>
+    </div>
   </div>
 </section>
+
 <section id="projects">
   <div class="section-head">
     <div>
@@ -272,84 +290,4 @@
       <div class="project-info"><div class="p-title">L'America <span class="arrow">↗</span></div><div class="p-sub">Página Web · Restaurante</div></div>
     </a>
     <a class="project-card" href="projects/malibut/index.html" target="_blank" rel="noopener">
-      <div class="project-thumb">
-        <div class="live-visual">
-          <iframe class="live-thumb" src="projects/malibut/index.html" tabindex="-1" title="Malibut Restobar"></iframe>
-        </div>
-      </div>
-      <div class="project-info"><div class="p-title">Malibut Restobar <span class="arrow">↗</span></div><div class="p-sub">Menú Digital</div></div>
-    </a>
-    <a class="project-card" href="projects/fiorella/index.html" target="_blank" rel="noopener">
-      <div class="project-thumb">
-        <div class="live-visual">
-          <iframe class="live-thumb" src="projects/fiorella/index.html" tabindex="-1" title="Fiorella's Cake"></iframe>
-        </div>
-      </div>
-      <div class="project-info"><div class="p-title">Fiorella's Cake <span class="arrow">↗</span></div><div class="p-sub">Portafolio Digital</div></div>
-    </a>
-    <a class="project-card" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
-      <div class="project-thumb">
-        <div class="live-visual">
-          <iframe class="live-thumb" src="https://dhelfhos-techmanagement.github.io/hawaii/" tabindex="-1" title="Hawaii Lounge Bar"></iframe>
-        </div>
-      </div>
-      <div class="project-info"><div class="p-title">Hawaii Lounge Bar <span class="arrow">↗</span></div><div class="p-sub">Menú Digital</div></div>
-    </a>
-  </div>
-</section>
-<section id="contact">
-  <div class="contact-box">
-    <div class="swirl"></div>
-    <svg class="paper-plane" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="6,30 58,6 34,58 30,36" fill="#4d7fff"/>
-      <polygon points="6,30 30,36 20,44" fill="#7c5cff"/>
-    </svg>
-    <div>
-      <h2>Trabajemos juntos</h2>
-      <p>¿Tienes un proyecto en mente? ¡Creemos algo increíble!</p>
-    </div>
-    <div class="contact-links">
-      <a class="contact-link" href="https://t.me/joseariah" target="_blank" rel="noopener">
-        <span class="c-icon">
-          <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="120" cy="120" r="120" fill="#229ED9"/>
-            <path d="M54 122l124-48c6-2 11 1 9 10l-21 100c-2 8-7 10-14 6l-38-28-18 17c-2 2-4 3-7 3l3-38 69-62c3-3-1-4-4-2l-85 54-37-12c-8-3-8-8 2-11z" fill="#fff"/>
-          </svg>
-        </span>
-        <span><span class="c-lbl">Telegram</span><br><span class="c-val">@joseariah</span></span>
-      </a>
-      <a class="contact-link" href="https://wa.me/573043941144" target="_blank" rel="noopener">
-        <span class="c-icon">
-          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="16" fill="#25D366"/>
-            <path fill="#fff" d="M23.5 8.5a10 10 0 0 0-16.9 10.9L5 27l7.8-1.5a10 10 0 0 0 14.6-17zM16 24.7a8.6 8.6 0 0 1-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3A8.7 8.7 0 1 1 16 24.7zm4.7-6.4c-.3-.1-1.5-.8-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8.9-.1.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/>
-          </svg>
-        </span>
-        <span><span class="c-lbl">WhatsApp</span><br><span class="c-val">304 394 1144</span></span>
-      </a>
-    </div>
-    <a class="btn-primary" style="align-self: flex-start; display: inline-block; margin-top: 10px;" href="https://shiny-frost-10dc.dhelfhos.workers.dev/" target="_blank" rel="noopener">
-  🚀 Probar mi App
-</a>
-    <a class="btn-primary" style="align-self:flex-start;display:inline-block;" href="https://wa.me/573043941144" target="_blank" rel="noopener">Hablemos</a>
-  </div>
-</section>
-<footer>
-  <div class="logo">Jose<span>Arias</span></div>
-  <div class="socials">f 𝕏 Dr Be Ig</div>
-</footer>
-<div class="copyright">© 2026 Jose Arias. Todos los derechos reservados.</div>
-<nav class="bottom-nav">
-  <a class="nav-item active" href="#home"><span class="n-icon">🏠</span>Inicio</a>
-  <a class="nav-item" href="#about"><span class="n-icon">👤</span>Sobre mí</a>
-  <a class="nav-item" href="#services"><span class="n-icon">🧩</span>Servicios</a>
-  <a class="nav-item" href="#projects"><span class="n-icon">🗂️</span>Proyectos</a>
-  <a class="nav-item" href="#contact"><span class="n-icon">💬</span>Contacto</a>
-</nav>
-<div style="text-align: center; margin: 30px 0; z-index: 999; position: relative;">
-  <a href="admin.htm" style="padding: 12px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 8px; margin: 5px; display: inline-block; font-weight: bold;">Ir a Admin</a>
-  <a href="cocina.htm" style="padding: 12px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 8px; margin: 5px; display: inline-block; font-weight: bold;">Ir a Cocina</a>
-  <a href="parche.htm" style="padding: 12px 20px; background: #ffc107; color: black; text-decoration: none; border-radius: 8px; margin: 5px; display: inline-block; font-weight: bold;">Ir a Parche</a>
-</div>
-</body>
-</html>
+      <div class="project-
