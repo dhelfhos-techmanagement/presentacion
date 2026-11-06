@@ -152,3 +152,240 @@
 
   /* Demos Corporativas */
   .demo-group { display: flex; flex-direction: column; gap: 12px; }
+  .demo-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex; justify-content: space-between; align-items: center;
+    backdrop-filter: blur(10px);
+    transition: all .2s ease;
+  }
+  .demo-item:hover { border-color: var(--gold); }
+  .demo-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+  .demo-info p { font-size: 0.75rem; color: var(--text-muted); }
+  .badge-gold {
+    font-size: 0.75rem; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  /* Servicios Corporativos */
+  .service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    backdrop-filter: blur(10px);
+  }
+  .service-card h3 {
+    font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; color: #fff; display: flex; align-items: center; gap: 8px;
+  }
+  .service-card p {
+    font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;
+  }
+
+  /* Proyectos Horizontales */
+  .cards-scroll {
+    display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+  }
+  .cards-scroll::-webkit-scrollbar { display: none; }
+  .project-card {
+    background: var(--card-bg); border: 1px solid var(--border-subtle);
+    border-radius: 12px; overflow: hidden; flex: 0 0 78%;
+    scroll-snap-align: start; display: block;
+  }
+  .project-thumb {
+    height: 180px; position: relative; overflow: hidden; background: #000;
+  }
+  .live-thumb {
+    position: absolute; top:0; left:0; width: 400%; height: 400%;
+    transform: scale(0.25); transform-origin: top left; border: 0; pointer-events: none;
+  }
+  .project-info { padding: 12px 16px; }
+  .project-info .p-title { font-weight: 600; font-size: 0.88rem; display: flex; justify-content: space-between; }
+  .project-info .p-sub { color: var(--text-muted); font-size: 0.72rem; }
+
+  /* Contacto y Botones Rápidos */
+  .contact-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 26px 20px;
+    text-align: center;
+  }
+  .contact-box h2 { font-family: 'Cinzel', serif; font-size: 1.25rem; margin-bottom: 8px; }
+  .contact-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+  .contact-btn-wa {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25d366; color: #000; font-weight: 700;
+    padding: 12px 24px; border-radius: 8px; font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  /* Barra de Navegación Fija */
+  .bottom-nav {
+    position: fixed; left:0; right:0; bottom:0; z-index: 50;
+    max-width: 540px; margin: 0 auto;
+    background: rgba(8, 10, 15, 0.92); backdrop-filter: blur(15px);
+    border-top: 1px solid var(--border-subtle);
+    display: flex; justify-content: space-around; align-items: center;
+    padding: 12px 8px calc(12px + env(safe-area-inset-bottom));
+  }
+  .nav-item {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    color: var(--text-muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .nav-item .n-icon { font-size: 1.1rem; }
+  .nav-item.active { color: var(--gold); }
+
+  footer {
+    padding: 30px 24px 10px; border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 36px; text-align: center;
+  }
+  .footer-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 6px; }
+  .footer-copy { color: var(--text-muted); font-size: 0.72rem; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="icon-btn" href="#home">✦</a>
+  <a class="icon-btn" href="#planes">💳</a>
+</div>
+
+<!-- HERO CORPORATIVO -->
+<div class="hero-section" id="home">
+  <div class="hero-logo-box">
+    <!-- El parámetro ?v=2 obliga al navegador a borrar la imagen anterior de la caché -->
+    <img src="assets/hero-logo.jpg?v=2" alt="DHELFHOS Branding Tech">
+  </div>
+  <p class="hero-tagline">Branding Tech &bull; Soluciones Digitales</p>
+  <h1 class="hero-title">DHELFHOS</h1>
+  <h2 class="hero-subtitle">Tu visión, nuestra tecnología</h2>
+  <p class="hero-desc">Desarrollo web corporativo, flyers publicitarios, menús digitales con código QR, branding de marca y marketing digital de alto impacto.</p>
+  <div class="hero-actions">
+    <a class="btn-gold" href="#planes">Ver Planes</a>
+    <a class="btn-outline" href="#projects">Portafolio</a>
+  </div>
+</div>
+
+<!-- SECCIÓN DE PLANES Y PRECIOS -->
+<section id="planes">
+  <div class="section-head">
+    <h2 class="section-title">Planes & Tarifas</h2>
+    <div class="gold-divider"></div>
+  </div>
+
+  <div class="plans-wrapper">
+    <!-- El parámetro ?v=2 fuerza la recarga de la tabla nueva -->
+    <img src="assets/planes-table.jpg?v=2" alt="Tabla de Planes Dhelfhos">
+  </div>
+
+  <div class="demo-group">
+    <a class="demo-item" href="projects/malibut/index.html" target="_blank" rel="noopener">
+      <div class="demo-info">
+        <h4>Demo Plan Básico</h4>
+        <p>Menú interactivo sin fotos / QR digital</p>
+      </div>
+      <span class="badge-gold">Explorar ↗</span>
+    </a>
+    <a class="demo-item" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
+      <div class="demo-info">
+        <h4>Demo Plan Emprendedor</h4>
+        <p>Menú con fotos, banners y redes</p>
+      </div>
+      <span class="badge-gold">Explorar ↗</span>
+    </a>
+    <a class="demo-item" href="https://shiny-frost-10dc.dhelfhos.workers.dev/" target="_blank" rel="noopener">
+      <div class="demo-info">
+        <h4>Demo Plan Premium</h4>
+        <p>Carrito completo, mesas, pedidos y dashboards</p>
+      </div>
+      <span class="badge-gold">Explorar ↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- SECCIÓN DE SERVICIOS -->
+<section id="services">
+  <div class="section-head">
+    <h2 class="section-title">Servicios</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="service-card">
+    <h3>Desarrollo Web & Branding</h3>
+    <p>Sitios corporativos a medida, páginas de aterrizaje de alta conversión y estructuración visual completa de marca.</p>
+  </div>
+  <div class="service-card">
+    <h3>Menús Digitales Interactivos</h3>
+    <p>Cartas inteligentes autogestionables mediante código QR, optimizadas para pedidos inmediatos y fidelización de clientes.</p>
+  </div>
+  <div class="service-card">
+    <h3>Flyers & Publicidad Digital</h3>
+    <p>Diseño publicitario sobrio y persuasivo para campañas comerciales y presencia sólida en plataformas digitales.</p>
+  </div>
+</section>
+
+<!-- DEMOS DESTACADAS -->
+<section id="projects">
+  <div class="section-head">
+    <h2 class="section-title">Casos de Éxito</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="cards-scroll">
+    <a class="project-card" href="projects/lamerica/index.html" target="_blank" rel="noopener">
+      <div class="project-thumb">
+        <iframe class="live-thumb" src="projects/lamerica/index.html" tabindex="-1" title="L'America"></iframe>
+      </div>
+      <div class="project-info">
+        <div class="p-title">L'America <span style="color:var(--gold);">↗</span></div>
+        <div class="p-sub">Diseño Web & Branding</div>
+      </div>
+    </a>
+    <a class="project-card" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
+      <div class="project-thumb">
+        <iframe class="live-thumb" src="https://dhelfhos-techmanagement.github.io/hawaii/" tabindex="-1" title="Hawaii"></iframe>
+      </div>
+      <div class="project-info">
+        <div class="p-title">Hawaii Restobar <span style="color:var(--gold);">↗</span></div>
+        <div class="p-sub">Menú Digital Interactivo</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contact">
+  <div class="contact-box">
+    <h2>DHELFHOS TECH</h2>
+    <p>Permítenos diseñar y transformar la presencia digital de tu marca.</p>
+    <a class="contact-btn-wa" href="https://wa.me/573043941144" target="_blank" rel="noopener">
+      Contactar por WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">DHELFHOS</div>
+  <div class="footer-copy">© 2026 DHELFHOS. Todos los derechos reservados.</div>
+</footer>
+
+<!-- NAVEGACIÓN INFERIOR -->
+<nav class="bottom-nav">
+  <a class="nav-item active" href="#home"><span class="n-icon">✦</span>Inicio</a>
+  <a class="nav-item" href="#planes"><span class="n-icon">💳</span>Planes</a>
+  <a class="nav-item" href="#services"><span class="n-icon">⚙</span>Servicios</a>
+  <a class="nav-item" href="#projects"><span class="n-icon">🗂</span>Demos</a>
+  <a class="nav-item" href="#contact"><span class="n-icon">💬</span>Contacto</a>
+</nav>
+
+<!-- ACCESOS INTERNOS RÁPIDOS -->
+<div style="text-align: center; margin: 30px 0 10px; z-index: 999; position: relative;">
+  <a href="admin.htm" style="padding: 8px 16px; background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: #cbd5e1; text-decoration: none; border-radius: 6px; margin: 4px; display: inline-block; font-size: 0.75rem;">Admin</a>
+  <a href="cocina.htm" style="padding: 8px 16px; background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: #cbd5e1; text-decoration: none; border-radius: 6px; margin: 4px; display: inline-block; font-size: 0.75rem;">Cocina</a>
+  <a href="parche.htm" style="padding: 8px 16px; background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: #cbd5e1; text-decoration: none; border-radius: 6px; margin: 4px; display: inline-block; font-size: 0.75rem;">Parche</a>
+</div>
+
+</body>
+</html>
