@@ -10,7 +10,7 @@
 <style>
   :root {
     --bg-dark: #0a0b0e;
-    --card-bg: linear-gradient(145deg, #16181f 0%, #0d0e13 100%);
+    --card-bg: linear-gradient(145deg, #181920 0%, #0e0f14 100%);
     --border-color: rgba(212, 175, 55, 0.22);
     --border-hover: rgba(212, 175, 55, 0.5);
     --bronze-accent: #c5a880;
@@ -24,13 +24,13 @@
   
   body {
     background-color: var(--bg-dark);
-    background-image: radial-gradient(circle at 50% 0%, #181a24 0%, var(--bg-dark) 85%);
+    background-image: radial-gradient(circle at 50% 0%, #1c1e29 0%, var(--bg-dark) 85%);
     color: var(--text-primary);
     font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
     line-height: 1.4;
     max-width: 440px;
     margin: 0 auto;
-    padding: 24px 16px 40px;
+    padding: 24px 16px 48px;
   }
 
   a { color: inherit; text-decoration: none; }
@@ -38,15 +38,15 @@
   .container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
   }
 
-  /* Cabecera idéntica a la imagen 1 */
-  .profile-header {
+  /* Cabecera idéntica al diseño de la imagen seleccionada */
+  .profile-box {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    padding: 18px;
+    padding: 16px;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -54,8 +54,8 @@
   }
 
   .profile-photo {
-    width: 85px;
-    height: 85px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--bronze-accent);
@@ -77,21 +77,20 @@
   }
 
   .profile-title {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 600;
     color: var(--bronze-accent);
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    line-height: 1.3;
   }
 
-  .profile-brand-logo {
-    width: 32px;
-    height: auto;
-    margin-top: 4px;
-    opacity: 0.85;
+  .profile-shield {
+    font-size: 1.2rem;
+    margin-top: 2px;
   }
 
-  /* Secciones con contenedores estilo tarjeta */
+  /* Contenedores de Sección */
   .section-box {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -107,7 +106,7 @@
     text-transform: uppercase;
     color: var(--bronze-accent);
     text-align: center;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   /* Grids */
@@ -143,12 +142,12 @@
   }
 
   .card-btn .icon {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--bronze-accent);
   }
 
   .card-btn .btn-text {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: #fff;
     text-transform: uppercase;
@@ -156,22 +155,22 @@
   }
 
   .card-btn .btn-sub {
-    font-size: 0.58rem;
+    font-size: 0.55rem;
     color: var(--text-secondary);
     word-break: break-all;
   }
 
-  /* Botones de contacto ancho completo por bloque */
+  /* Botones de contacto */
   .contact-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     background: rgba(22, 24, 31, 0.9);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 12px;
     padding: 14px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
     color: #fff;
     text-transform: uppercase;
@@ -191,7 +190,7 @@
     display: flex;
     justify-content: center;
     gap: 14px;
-    margin-top: 10px;
+    margin-top: 8px;
     opacity: 0.4;
   }
   .admin-links a {
@@ -205,37 +204,37 @@
 
 <div class="container">
 
-  <!-- CABECERA: FOTO A LA IZQUIERDA Y DATOS A LA DERECHA -->
-  <header class="profile-header">
+  <!-- CABECERA: FOTO, NOMBRE, TÍTULO Y ESCUDO -->
+  <div class="profile-box">
+    <!-- Asegúrate de que tu foto esté guardada como assets/jose-arias.jpg -->
     <img src="assets/jose-arias.jpg" alt="Jose Arias" class="profile-photo">
     <div class="profile-info">
       <h1 class="profile-name">JOSE ARIAS</h1>
       <div class="profile-title">CEO & Fundador de DHELFHOS</div>
-      <!-- Asegúrate de subir tu icono o logo del búho como hero-logo.jpg en la carpeta assets -->
-      <img src="assets/hero-logo.jpg" alt="DHELFHOS" class="profile-brand-logo">
+      <div class="profile-shield">🛡️</div>
     </div>
-  </header>
+  </div>
 
   <!-- SECCIÓN: NUESTROS PLANES -->
   <div class="section-box">
     <h2 class="section-title">Nuestros Planes</h2>
     <div class="grid-3">
       <a href="#demos" class="card-btn">
-        <span class="icon">💼</span>
+        <span class="icon">💻</span>
         <span class="btn-text">Básico</span>
       </a>
       <a href="#demos" class="card-btn">
-        <span class="icon">🚀</span>
+        <span class="icon">💻</span>
         <span class="btn-text">Emprendedor</span>
       </a>
       <a href="#demos" class="card-btn">
-        <span class="icon">👑</span>
+        <span class="icon">💻</span>
         <span class="btn-text">Premium</span>
       </a>
     </div>
   </div>
 
-  <!-- SECCIÓN: DEMOS EN VIVO (Con el botón Premium limpio sin "El Parche") -->
+  <!-- SECCIÓN: DEMOS EN VIVO -->
   <div class="section-box" id="demos">
     <h2 class="section-title">Demos en Vivo</h2>
     <div class="grid-3">
