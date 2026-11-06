@@ -4,290 +4,151 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DHELFHOS | Branding Tech & Menús Digitales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0a0a14;
-    --bg-card:#12121f;
-    --border:#232338;
-    --purple:#7c5cff;
-    --blue:#4d7fff;
-    --grad: linear-gradient(90deg,#7c5cff,#4d7fff);
+  :root {
+    --bg-deep: #05070a;
+    --card-bg: rgba(14, 17, 23, 0.75);
+    --border-subtle: rgba(212, 175, 55, 0.18);
+    --border-hover: rgba(212, 175, 55, 0.45);
     --gold: #d4af37;
-    --text:#f2f2f7;
-    --muted:#9797ab;
+    --gold-light: #f3e5ab;
+    --gold-grad: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
+    --silver-grad: linear-gradient(135deg, #e0e0e0 0%, #8a8a8a 100%);
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
   }
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  html{-webkit-text-size-adjust:100%;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-    line-height:1.5;
-    max-width:520px;
-    margin:0 auto;
-    padding-bottom:calc(74px + env(safe-area-inset-bottom));
-    overscroll-behavior-y:contain;
-  }
-  a{color:inherit;text-decoration:none;}
-  button, .contact-link, .pill-btn, .icon-btn{touch-action:manipulation;}
-  .bottom-nav{
-    position:fixed;left:0;right:0;bottom:0;z-index:50;
-    max-width:520px;margin:0 auto;
-    background:rgba(18,18,31,0.92);backdrop-filter:blur(10px);
-    border-top:1px solid var(--border);
-    display:flex;justify-content:space-around;align-items:center;
-    padding:10px 8px calc(10px + env(safe-area-inset-bottom));
-  }
-  .nav-item{
-    display:flex;flex-direction:column;align-items:center;gap:3px;
-    color:var(--muted);font-size:0.65rem;flex:1;
-  }
-  .nav-item .n-icon{font-size:1.15rem;line-height:1;}
-  .nav-item.active{color:#fff;}
-  .nav-item.active .n-icon{
-    background:var(--grad);-webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;
-  }
-  .topbar{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:24px;
-  }
-  .icon-btn{
-    width:36px;height:36px;border-radius:8px;background:var(--bg-card);
-    border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
-    color:var(--muted);font-size:1.1rem;
-  }
-  .hero-photo-wrap{
-    position:relative;overflow:hidden;background:#06060c;text-align:center;padding:24px 16px 0;
-  }
-  .hero-photo-wrap img{
-    max-width:240px;width:100%;height:auto;margin:0 auto;display:block;
-  }
-  .hero-photo-wrap::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(0deg, var(--bg) 0%, rgba(10,10,20,0.1) 60%, rgba(10,10,20,0) 100%);
-  }
-  .hero-text{
-    padding:0 24px;margin-top:-20px;position:relative;z-index:2;
-  }
-  .hero-greet{font-size:1rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1px;}
-  .hero-name{font-size:2.2rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.15;}
-  .hero-role{font-size:1.1rem;font-weight:700;margin-bottom:12px;color:#fff;}
-  .hero-desc{color:var(--muted);font-size:0.9rem;margin-bottom:20px;max-width:420px;}
-  .hero-actions{display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap;}
-  .btn-primary{
-    background:var(--grad);color:#fff;padding:12px 20px;border-radius:24px;
-    font-weight:600;font-size:0.88rem;border:none;cursor:pointer;
-    display:inline-block;
-  }
-  .play-link{
-    display:flex;align-items:center;gap:8px;color:var(--text);font-size:0.88rem;font-weight:500;
-  }
-  .play-icon{
-    width:32px;height:32px;border-radius:50%;background:var(--bg-card);
-    border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
-  }
-  section{padding:36px 24px 0;}
-  .section-title{font-size:1.3rem;font-weight:700;margin-bottom:6px;}
-  .title-underline{width:40px;height:4px;background:var(--grad);border-radius:2px;margin-bottom:18px;}
-  .section-head{display:flex;justify-content:space-between;align-items:flex-start;}
-  .pill-btn{
-    background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
-    padding:8px 14px;font-size:0.8rem;color:var(--text);display:flex;align-items:center;gap:6px;
-  }
-  .about-text p{color:var(--muted);font-size:0.9rem;}
-  .stats{display:flex;margin-top:24px;}
-  .stat-col{flex:1;padding-right:10px;border-right:1px solid var(--border);}
-  .stat-col:last-child{border-right:none;}
-  .stat-col .num{font-size:1.4rem;font-weight:800;color:#fff;}
-  .stat-col .lbl{color:var(--muted);font-size:0.75rem;}
-  .services-list{display:flex;flex-direction:column;gap:14px;}
-  .service-card{
-    background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
-    overflow:hidden;
-  }
-  .service-visual{
-    height:130px;display:flex;align-items:center;justify-content:center;
-    padding:16px;
-  }
-  .service-body{padding:14px 16px 16px;}
-  .service-card h3{margin-bottom:4px;font-size:1rem;}
-  .service-card p{color:var(--muted);font-size:0.8rem;}
-  .cards-scroll{
-    display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;
-    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-  }
-  .cards-scroll::-webkit-scrollbar{display:none;}
-  .project-card{
-    background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
-    overflow:hidden;flex:0 0 76%;scroll-snap-align:start;display:block;
-  }
-  .project-thumb{
-    height:190px;position:relative;overflow:hidden;background:#0e0e1a;
-  }
-  .project-info{padding:12px 14px;}
-  .project-info .p-title{font-weight:700;font-size:0.9rem;display:flex;justify-content:space-between;align-items:center;}
-  .project-info .p-sub{color:var(--muted);font-size:0.75rem;}
-  .arrow{color:var(--purple);}
-  .live-thumb{
-    position:absolute;top:0;left:0;
-    width:400%;height:400%;
-    transform:scale(0.25);transform-origin:top left;
-    border:0;pointer-events:none;
-  }
-  .live-visual{
-    position:relative;width:100%;height:100%;overflow:hidden;
-  }
-  .plans-img-wrap{
-    background:var(--bg-card);border:1px solid var(--border);border-radius:18px;
-    overflow:hidden;margin-bottom:18px;
-  }
-  .plans-img-wrap img{width:100%;height:auto;display:block;}
-  .demo-buttons{display:flex;flex-direction:column;gap:10px;}
-  .btn-demo{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:14px 18px;border-radius:14px;font-weight:600;font-size:0.88rem;
-    transition:transform .15s ease;
-  }
-  .btn-demo-basic{background:var(--bg-card);border:1px solid var(--border);color:#fff;}
-  .btn-demo-emp{background:rgba(212,175,55,0.12);border:1px solid var(--gold);color:var(--gold);}
-  .btn-demo-prem{background:var(--grad);border:none;color:#fff;}
-  .contact-box{
-    background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
-    padding:32px 24px;position:relative;overflow:hidden;
-    display:flex;flex-direction:column;gap:16px;
-  }
-  .contact-box h2{font-size:1.3rem;}
-  .contact-box p{color:var(--muted);font-size:0.85rem;max-width:260px;}
-  .contact-links{display:flex;flex-direction:column;gap:10px;}
-  .contact-link{
-    display:flex;align-items:center;gap:12px;
-    background:var(--bg);border:1px solid var(--border);border-radius:14px;
-    padding:12px 14px;transition:border-color .2s;
-  }
-  .contact-link:hover{border-color:var(--purple);}
-  .contact-link .c-icon{
-    width:40px;height:40px;border-radius:10px;overflow:hidden;
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  }
-  .contact-link .c-icon svg{width:100%;height:100%;display:block;}
-  .contact-link .c-lbl{font-size:0.72rem;color:var(--muted);}
-  .contact-link .c-val{font-size:0.9rem;font-weight:600;}
-  .paper-plane{
-    position:absolute;right:18px;top:18px;width:60px;height:60px;
-    opacity:.9;pointer-events:none;
-  }
-  .swirl{
-    position:absolute;right:70px;top:10px;width:60px;height:60px;
-    border:1.5px dashed var(--border);border-radius:50%;
-    pointer-events:none;
-  }
-  footer{
-    padding:32px 24px;border-top:1px solid var(--border);margin-top:36px;
-    display:flex;justify-content:space-between;align-items:center;
-  }
-  .logo{font-size:1.2rem;font-weight:700;}
-  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
-  footer .socials{display:flex;gap:14px;color:var(--muted);}
-  .copyright{color:var(--muted);font-size:0.75rem;text-align:center;padding-bottom:24px;}
-</style>
-</head>
-<body>
 
-<div class="topbar">
-  <a class="icon-btn" href="#home">☰</a>
-  <a class="icon-btn" href="#planes">💳</a>
-</div>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  
+  body {
+    background: radial-gradient(circle at 50% 0%, #111827 0%, var(--bg-deep) 75%);
+    color: var(--text-primary);
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    max-width: 540px;
+    margin: 0 auto;
+    padding-bottom: calc(85px + env(safe-area-inset-bottom));
+  }
 
-<div class="hero-photo-wrap" id="home">
-  <img src="assets/hero-logo.jpg" alt="DHELFHOS Branding Tech">
-</div>
+  a { color:inherit; text-decoration:none; }
 
-<div class="hero-text">
-  <p class="hero-greet">Branding Tech</p>
-  <h1 class="hero-name">DHELFHOS</h1>
-  <h2 class="hero-role">Soluciones Digitales & Marketing</h2>
-  <p class="hero-desc">Desarrollo de páginas web, flyers, menús digitales interactivos por QR, branding y marketing digital integral para tu negocio.</p>
-  <div class="hero-actions">
-    <a class="btn-primary" href="#planes">Ver Planes y Precios</a>
-    <a class="play-link" href="#services"><span class="play-icon">↓</span> Servicios</a>
-  </div>
-</div>
+  /* Topbar Minimalista */
+  .topbar {
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 20px 24px;
+  }
+  .icon-btn {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--card-bg); border: 1px solid var(--border-subtle);
+    display:flex; align-items:center; justify-content:center;
+    color: var(--gold-light); font-size: 1rem;
+    backdrop-filter: blur(12px);
+  }
 
-<section id="planes">
-  <div class="section-head">
-    <div>
-      <h2 class="section-title">Planes y Precios</h2>
-      <div class="title-underline"></div>
-    </div>
-  </div>
+  /* Hero Corporativo */
+  .hero-section {
+    text-align: center;
+    padding: 20px 24px 30px;
+  }
+  .hero-logo-box {
+    width: 220px;
+    margin: 0 auto 20px;
+    position: relative;
+    border-radius: 20px;
+    padding: 10px;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+  }
+  .hero-logo-box img {
+    width: 100%; height: auto; display: block;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+  }
+  .hero-tagline {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    color: #e2e8f0;
+    font-weight: 400;
+    margin: 10px auto 16px;
+    letter-spacing: 0.5px;
+  }
+  .hero-desc {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    max-width: 430px;
+    margin: 0 auto 26px;
+    font-weight: 300;
+  }
+  .hero-actions {
+    display: flex; justify-content: center; gap: 14px;
+  }
+  .btn-gold {
+    background: var(--gold-grad);
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(212,175,55,0.25);
+  }
+  .btn-outline {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(10px);
+  }
 
-  <div class="plans-img-wrap">
-    <img src="assets/planes-table.jpg" alt="Planes Básico, Emprendedor y Premium Dhelfhos">
-  </div>
+  /* Secciones Generales */
+  section { padding: 34px 24px 0; }
+  .section-head { margin-bottom: 20px; }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    letter-spacing: 1.5px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .gold-divider {
+    width: 35px; height: 2px; background: var(--gold); margin-top: 6px;
+  }
 
-  <div class="demo-buttons">
-    <a class="btn-demo btn-demo-basic" href="projects/malibut/index.html" target="_blank" rel="noopener">
-      <span>Ver Demo Plan Básico <i>(Sin fotos)</i></span>
-      <span>↗</span>
-    </a>
-    <a class="btn-demo btn-demo-emp" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
-      <span>Ver Demo Plan Emprendedor <i>(Con fotos)</i></span>
-      <span>↗</span>
-    </a>
-    <a class="btn-demo btn-demo-prem" href="https://shiny-frost-10dc.dhelfhos.workers.dev/" target="_blank" rel="noopener">
-      <span>Ver Demo Plan Premium <i>(Carrito y Pedidos)</i></span>
-      <span>↗</span>
-    </a>
-  </div>
-</section>
+  /* Tarjeta de Planes y Tabla */
+  .plans-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 12px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    margin-bottom: 20px;
+  }
+  .plans-wrapper img {
+    width: 100%; height: auto; border-radius: 8px; display: block;
+  }
 
-<section id="services">
-  <div class="section-head">
-    <div>
-      <h2 class="section-title">Lo que hacemos</h2>
-      <div class="title-underline"></div>
-    </div>
-    <a class="pill-btn" href="#contact">→</a>
-  </div>
-  <div class="services-list">
-    <div class="service-card">
-      <div class="service-body">
-        <h3>🌐 Páginas Web & Branding</h3>
-        <p>Presencia digital profesional, rápida y responsiva, enfocada en proyectar la identidad de tu marca.</p>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-body">
-        <h3>📲 Menús Digitales Interactivos</h3>
-        <p>Sistemas ágiles por código QR con cartas interactivas, pedidos por WhatsApp y paneles de control.</p>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-body">
-        <h3>🎨 Flyers & Marketing Digital</h3>
-        <p>Estrategias visuales y diseño publicitario para destacar en redes sociales y atraer clientes.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="section-head">
-    <div>
-      <h2 class="section-title">Proyectos destacados</h2>
-      <div class="title-underline"></div>
-    </div>
-    <a class="pill-btn" href="#contact">Ver todo →</a>
-  </div>
-  <div class="cards-scroll">
-    <a class="project-card" href="projects/lamerica/index.html" target="_blank" rel="noopener">
-      <div class="project-thumb">
-        <div class="live-visual">
-          <iframe class="live-thumb" src="projects/lamerica/index.html" tabindex="-1" title="L'America"></iframe>
-        </div>
-      </div>
-      <div class="project-info"><div class="p-title">L'America <span class="arrow">↗</span></div><div class="p-sub">Página Web · Restaurante</div></div>
-    </a>
-    <a class="project-card" href="projects/malibut/index.html" target="_blank" rel="noopener">
-      <div class="project-
+  /* Demos Corporativas */
+  .demo-group { display: flex; flex-direction: column; gap: 12px; }
