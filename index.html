@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-dark: #0f1013;
-    --bg-card: rgba(30, 31, 37, 0.65);
-    --border-color: rgba(212, 175, 55, 0.15);
-    --border-hover: rgba(212, 175, 55, 0.3);
-    --bronze-accent: #bca374;
-    --text-primary: #e2e8f0;
-    --text-secondary: #94a3b8;
+    --bg-dark: #0a0b0e;
+    --card-bg: linear-gradient(145deg, #16181f 0%, #0d0e13 100%);
+    --border-color: rgba(212, 175, 55, 0.22);
+    --border-hover: rgba(212, 175, 55, 0.5);
+    --bronze-accent: #c5a880;
+    --text-primary: #f1f5f9;
+    --text-secondary: #8c9ba5;
     --whatsapp-green: #25d366;
     --telegram-blue: #229ed9;
   }
@@ -24,198 +24,180 @@
   
   body {
     background-color: var(--bg-dark);
-    background-image: radial-gradient(circle at 50% 0%, #1c1d24 0%, #0f1013 80%);
+    background-image: radial-gradient(circle at 50% 0%, #181a24 0%, var(--bg-dark) 85%);
     color: var(--text-primary);
     font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-    line-height: 1.5;
-    max-width: 480px;
+    line-height: 1.4;
+    max-width: 440px;
     margin: 0 auto;
-    padding: 32px 18px 48px;
+    padding: 24px 16px 40px;
   }
 
   a { color: inherit; text-decoration: none; }
 
-  /* Contenedor Principal con Estilo Modular */
   .container {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 20px;
   }
 
-  /* Perfil y Encabezado */
-  .profile-section {
-    text-align: center;
+  /* Cabecera idéntica a la imagen 1 */
+  .profile-header {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   }
 
-  .profile-frame {
-    width: 130px;
-    height: 130px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    padding: 3px;
-    background: linear-gradient(135deg, var(--bronze-accent) 0%, rgba(30, 31, 37, 0.1) 100%);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  }
-
-  .profile-img {
-    width: 100%;
-    height: 100%;
+  .profile-photo {
+    width: 85px;
+    height: 85px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid var(--bronze-accent);
+    flex-shrink: 0;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .profile-name {
-    font-size: 1.6rem;
+    font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 1px;
-    text-transform: uppercase;
     color: #fff;
-    line-height: 1.1;
+    text-transform: uppercase;
   }
 
   .profile-title {
-    font-size: 0.72rem;
-    font-weight: 500;
+    font-size: 0.65rem;
+    font-weight: 600;
     color: var(--bronze-accent);
-    letter-spacing: 2.5px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-top: 6px;
   }
 
-  /* Separadores y Títulos de Secciones */
-  .section {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  .profile-brand-logo {
+    width: 32px;
+    height: auto;
+    margin-top: 4px;
+    opacity: 0.85;
   }
 
-  .section-header {
-    text-align: center;
+  /* Secciones con contenedores estilo tarjeta */
+  .section-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
   }
 
   .section-title {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--bronze-accent);
+    text-align: center;
+    margin-bottom: 14px;
   }
 
-  .divider {
-    width: 24px;
-    height: 1px;
-    background: var(--bronze-accent);
-    opacity: 0.5;
-    margin: 8px auto 0;
-  }
-
-  /* Grid Simétrico para los Planes */
-  .planes-grid {
+  /* Grids */
+  .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
-  .card-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 20px 8px;
+  .card-btn {
+    background: rgba(22, 24, 31, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 10px;
+    padding: 12px 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 6px;
     text-align: center;
     transition: all 0.2s ease;
   }
 
-  .card-item:hover {
+  .card-btn:hover {
     border-color: var(--border-hover);
     transform: translateY(-2px);
   }
 
-  .icon {
-    font-size: 1.4rem;
+  .card-btn .icon {
+    font-size: 1.2rem;
     color: var(--bronze-accent);
   }
 
-  .item-title {
-    font-size: 0.75rem;
+  .card-btn .btn-text {
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
     color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
-  .item-sub {
-    font-size: 0.62rem;
+  .card-btn .btn-sub {
+    font-size: 0.58rem;
     color: var(--text-secondary);
-    text-transform: capitalize;
+    word-break: break-all;
   }
 
-  /* Grid para Demos en Vivo */
-  .demos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  /* Grid para Sistemas Extras */
-  .extras-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  /* Botones de Contacto Simétricos */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .btn-contact {
+  /* Botones de contacto ancho completo por bloque */
+  .contact-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
+    gap: 10px;
+    background: rgba(22, 24, 31, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 12px;
-    padding: 14px 10px;
+    padding: 14px;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.2s ease;
   }
 
-  .btn-contact:hover {
+  .contact-btn:hover {
     border-color: var(--border-hover);
   }
 
-  .icon-wa { color: var(--whatsapp-green); font-size: 1.1rem; }
-  .icon-tg { color: var(--telegram-blue); font-size: 1.1rem; }
+  .wa-icon { color: var(--whatsapp-green); font-size: 1.1rem; }
+  .tg-icon { color: var(--telegram-blue); font-size: 1.1rem; }
 
-  /* Enlaces de administración ocultos pero accesibles */
-  .admin-shortcuts {
+  /* Accesos ocultos de administración */
+  .admin-links {
     display: flex;
     justify-content: center;
-    gap: 16px;
-    margin-top: 16px;
+    gap: 14px;
+    margin-top: 10px;
+    opacity: 0.4;
   }
-
-  .shortcut-link {
+  .admin-links a {
     font-size: 0.65rem;
     color: var(--text-secondary);
     text-decoration: underline;
-    opacity: 0.5;
-  }
-
-  .shortcut-link:hover {
-    opacity: 1;
-    color: var(--bronze-accent);
   }
 </style>
 </head>
@@ -223,104 +205,90 @@
 
 <div class="container">
 
-  <!-- PERFIL -->
-  <header class="profile-section">
-    <div class="profile-frame">
-      <img src="assets/jose-arias.jpg" alt="JOSE ARIAS" class="profile-img">
+  <!-- CABECERA: FOTO A LA IZQUIERDA Y DATOS A LA DERECHA -->
+  <header class="profile-header">
+    <img src="assets/jose-arias.jpg" alt="Jose Arias" class="profile-photo">
+    <div class="profile-info">
+      <h1 class="profile-name">JOSE ARIAS</h1>
+      <div class="profile-title">CEO & Fundador de DHELFHOS</div>
+      <!-- Asegúrate de subir tu icono o logo del búho como hero-logo.jpg en la carpeta assets -->
+      <img src="assets/hero-logo.jpg" alt="DHELFHOS" class="profile-brand-logo">
     </div>
-    <h1 class="profile-name">JOSE ARIAS</h1>
-    <div class="profile-title">CEO & Fundador de DHELFHOS</div>
   </header>
 
-  <!-- NUESTROS PLANES -->
-  <section class="section">
-    <div class="section-header">
-      <h2 class="section-title">Nuestros Planes</h2>
-      <div class="divider"></div>
-    </div>
-    <!-- Enlace a la imagen descriptiva de planes si ya existe en tu repositorio -->
-    <div class="planes-grid">
-      <a href="#demos" class="card-item">
+  <!-- SECCIÓN: NUESTROS PLANES -->
+  <div class="section-box">
+    <h2 class="section-title">Nuestros Planes</h2>
+    <div class="grid-3">
+      <a href="#demos" class="card-btn">
         <span class="icon">💼</span>
-        <span class="item-title">Básico</span>
+        <span class="btn-text">Básico</span>
       </a>
-      <a href="#demos" class="card-item">
+      <a href="#demos" class="card-btn">
         <span class="icon">🚀</span>
-        <span class="item-title">Emprendedor</span>
+        <span class="btn-text">Emprendedor</span>
       </a>
-      <a href="#demos" class="card-item">
+      <a href="#demos" class="card-btn">
         <span class="icon">👑</span>
-        <span class="item-title">Premium</span>
+        <span class="btn-text">Premium</span>
       </a>
     </div>
-  </section>
+  </div>
 
-  <!-- DEMOS EN VIVO -->
-  <section id="demos" class="section">
-    <div class="section-header">
-      <h2 class="section-title">Demos en vivo</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="demos-grid">
-      <a href="projects/malibut/index.html" target="_blank" rel="noopener" class="card-item">
-        <span class="icon">📖</span>
-        <span class="item-title">Menú</span>
-        <span class="item-sub">Básico</span>
+  <!-- SECCIÓN: DEMOS EN VIVO (Con el botón Premium limpio sin "El Parche") -->
+  <div class="section-box" id="demos">
+    <h2 class="section-title">Demos en Vivo</h2>
+    <div class="grid-3">
+      <a href="projects/malibut/index.html" target="_blank" rel="noopener" class="card-btn">
+        <span class="icon">🔗</span>
+        <span class="btn-text">Menú Básico</span>
       </a>
-      <a href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener" class="card-item">
-        <span class="icon">📱</span>
-        <span class="item-title">Menú</span>
-        <span class="item-sub">Emprendedor</span>
+      <a href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener" class="card-btn">
+        <span class="icon">🔗</span>
+        <span class="btn-text">Menú Emprendedor</span>
       </a>
-      <a href="https://daa5b541.el-parche.pages.dev/" target="_blank" rel="noopener" class="card-item">
-        <span class="icon">🛒</span>
-        <span class="item-title">Premium</span>
-        <span class="item-sub">En Vivo</span>
+      <a href="https://daa5b541.el-parche.pages.dev/" target="_blank" rel="noopener" class="card-btn">
+        <span class="icon">🔗</span>
+        <span class="btn-text">Premium</span>
       </a>
     </div>
-  </section>
+  </div>
 
-  <!-- SISTEMAS EXTRAS -->
-  <section class="section">
-    <div class="section-header">
-      <h2 class="section-title">Sistemas Extras</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="extras-grid">
-      <a href="https://el-parche.pages.dev/admin/" target="_blank" rel="noopener" class="card-item">
+  <!-- SECCIÓN: SISTEMAS EXTRAS -->
+  <div class="section-box">
+    <h2 class="section-title">Sistemas Extras</h2>
+    <div class="grid-2">
+      <a href="https://el-parche.pages.dev/admin/" target="_blank" rel="noopener" class="card-btn">
         <span class="icon">📊</span>
-        <span class="item-title">Dashboard Admin</span>
-        <span class="item-sub">Ver sistema</span>
+        <span class="btn-text">Dashboard Admin</span>
+        <span class="btn-sub">el-parche.pages.dev/admin/</span>
       </a>
-      <a href="https://el-parche.pages.dev/cocina/" target="_blank" rel="noopener" class="card-item">
+      <a href="https://el-parche.pages.dev/cocina/" target="_blank" rel="noopener" class="card-btn">
         <span class="icon">🍳</span>
-        <span class="item-title">Dashboard Cocina</span>
-        <span class="item-sub">Ver pantalla</span>
+        <span class="btn-text">Dashboard Cocina</span>
+        <span class="btn-sub">el-parche.pages.dev/cocina/</span>
       </a>
     </div>
-  </section>
+  </div>
 
-  <!-- CONTACTO DIRECTO -->
-  <section class="section">
-    <div class="section-header">
-      <h2 class="section-title">Contacto Directo</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="contact-grid">
-      <a href="https://wa.me/573043941144" target="_blank" rel="noopener" class="btn-contact">
-        <span class="icon-wa">💬</span> WhatsApp
+  <!-- SECCIÓN: CONTACTO DIRECTO -->
+  <div class="section-box">
+    <h2 class="section-title">Contacto Directo</h2>
+    <div class="grid-2">
+      <a href="https://wa.me/573043941144" target="_blank" rel="noopener" class="contact-btn">
+        <span class="wa-icon">💬</span> WhatsApp
       </a>
-      <a href="https://t.me/joseariah" target="_blank" rel="noopener" class="btn-contact">
-        <span class="icon-tg">✈</span> Telegram
+      <a href="https://t.me/joseariah" target="_blank" rel="noopener" class="contact-btn">
+        <span class="tg-icon">✈</span> Telegram
       </a>
     </div>
-  </section>
+  </div>
 
-  <!-- ENLACES DE ADMINISTRACIÓN INTERNOS -->
-  <div class="admin-shortcuts">
-    <a href="admin.htm" class="shortcut-link">Acceso Admin</a>
-    <a href="cocina.htm" class="shortcut-link">Cocina</a>
-    <a href="parche.htm" class="shortcut-link">Parche</a>
+  <!-- ACCESOS INTERNOS RÁPIDOS -->
+  <div class="admin-links">
+    <a href="admin.htm">Admin</a>
+    <a href="cocina.htm">Cocina</a>
+    <a href="parche.htm">Parche</a>
   </div>
 
 </div>
