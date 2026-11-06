@@ -3,388 +3,326 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DHELFHOS | Branding Tech & Menús Digitales</title>
+<title>JOSE ARIAS | CEO & Fundador de DHELFHOS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-deep: #05070a;
-    --card-bg: rgba(14, 17, 23, 0.75);
-    --border-subtle: rgba(212, 175, 55, 0.18);
-    --border-hover: rgba(212, 175, 55, 0.45);
-    --gold: #d4af37;
-    --gold-light: #f3e5ab;
-    --gold-grad: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
-    --silver-grad: linear-gradient(135deg, #e0e0e0 0%, #8a8a8a 100%);
-    --text-primary: #f8fafc;
-    --text-muted: #94a3b8;
+    --bg-dark: #0f1013;
+    --bg-card: rgba(30, 31, 37, 0.65);
+    --border-color: rgba(212, 175, 55, 0.15);
+    --border-hover: rgba(212, 175, 55, 0.3);
+    --bronze-accent: #bca374;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --whatsapp-green: #25d366;
+    --telegram-blue: #229ed9;
   }
 
-  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   
   body {
-    background: radial-gradient(circle at 50% 0%, #111827 0%, var(--bg-deep) 75%);
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at 50% 0%, #1c1d24 0%, #0f1013 80%);
     color: var(--text-primary);
     font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    max-width: 540px;
+    line-height: 1.5;
+    max-width: 480px;
     margin: 0 auto;
-    padding-bottom: calc(85px + env(safe-area-inset-bottom));
+    padding: 32px 18px 48px;
   }
 
-  a { color:inherit; text-decoration:none; }
+  a { color: inherit; text-decoration: none; }
 
-  /* Topbar Minimalista */
-  .topbar {
-    display:flex; align-items:center; justify-content:space-between;
-    padding: 20px 24px;
-  }
-  .icon-btn {
-    width: 40px; height: 40px; border-radius: 10px;
-    background: var(--card-bg); border: 1px solid var(--border-subtle);
-    display:flex; align-items:center; justify-content:center;
-    color: var(--gold-light); font-size: 1rem;
-    backdrop-filter: blur(12px);
+  /* Contenedor Principal con Estilo Modular */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
 
-  /* Hero Corporativo */
-  .hero-section {
+  /* Perfil y Encabezado */
+  .profile-section {
     text-align: center;
-    padding: 20px 24px 30px;
   }
-  .hero-logo-box {
-    width: 220px;
-    margin: 0 auto 20px;
-    position: relative;
-    border-radius: 20px;
-    padding: 10px;
-    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+
+  .profile-frame {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--bronze-accent) 0%, rgba(30, 31, 37, 0.1) 100%);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   }
-  .hero-logo-box img {
-    width: 100%; height: auto; display: block;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
   }
-  .hero-tagline {
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .hero-title {
-    font-family: 'Cinzel', serif;
-    font-size: 2.3rem;
+
+  .profile-name {
+    font-size: 1.6rem;
     font-weight: 700;
-    letter-spacing: 2px;
-    background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 1.1;
-  }
-  .hero-subtitle {
-    font-size: 0.95rem;
-    color: #e2e8f0;
-    font-weight: 400;
-    margin: 10px auto 16px;
-    letter-spacing: 0.5px;
-  }
-  .hero-desc {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    max-width: 430px;
-    margin: 0 auto 26px;
-    font-weight: 300;
-  }
-  .hero-actions {
-    display: flex; justify-content: center; gap: 14px;
-  }
-  .btn-gold {
-    background: var(--gold-grad);
-    color: #000;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.85rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(212,175,55,0.25);
-  }
-  .btn-outline {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-primary);
-    padding: 12px 22px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    backdrop-filter: blur(10px);
-  }
-
-  /* Secciones Generales */
-  section { padding: 34px 24px 0; }
-  .section-head { margin-bottom: 20px; }
-  .section-title {
-    font-family: 'Cinzel', serif;
-    font-size: 1.25rem;
-    letter-spacing: 1.5px;
     color: #fff;
+    line-height: 1.1;
+  }
+
+  .profile-title {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--bronze-accent);
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-  }
-  .gold-divider {
-    width: 35px; height: 2px; background: var(--gold); margin-top: 6px;
+    margin-top: 6px;
   }
 
-  /* Tarjeta de Planes y Tabla */
-  .plans-wrapper {
-    background: var(--card-bg);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 12px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    margin-bottom: 20px;
-  }
-  .plans-wrapper img {
-    width: 100%; height: auto; border-radius: 8px; display: block;
+  /* Separadores y Títulos de Secciones */
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
-  /* Demos Corporativas */
-  .demo-group { display: flex; flex-direction: column; gap: 12px; }
-  .demo-item {
-    background: var(--card-bg);
-    border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    padding: 14px 18px;
-    display: flex; justify-content: space-between; align-items: center;
-    backdrop-filter: blur(10px);
-    transition: all .2s ease;
-  }
-  .demo-item:hover { border-color: var(--gold); }
-  .demo-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
-  .demo-info p { font-size: 0.75rem; color: var(--text-muted); }
-  .badge-gold {
-    font-size: 0.75rem; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
-  }
-
-  /* Servicios Corporativos */
-  .service-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 12px;
-    backdrop-filter: blur(10px);
-  }
-  .service-card h3 {
-    font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; color: #fff; display: flex; align-items: center; gap: 8px;
-  }
-  .service-card p {
-    font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;
-  }
-
-  /* Proyectos Horizontales */
-  .cards-scroll {
-    display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px;
-    scroll-snap-type: x mandatory;
-  }
-  .cards-scroll::-webkit-scrollbar { display: none; }
-  .project-card {
-    background: var(--card-bg); border: 1px solid var(--border-subtle);
-    border-radius: 12px; overflow: hidden; flex: 0 0 78%;
-    scroll-snap-align: start; display: block;
-  }
-  .project-thumb {
-    height: 180px; position: relative; overflow: hidden; background: #000;
-  }
-  .live-thumb {
-    position: absolute; top:0; left:0; width: 400%; height: 400%;
-    transform: scale(0.25); transform-origin: top left; border: 0; pointer-events: none;
-  }
-  .project-info { padding: 12px 16px; }
-  .project-info .p-title { font-weight: 600; font-size: 0.88rem; display: flex; justify-content: space-between; }
-  .project-info .p-sub { color: var(--text-muted); font-size: 0.72rem; }
-
-  /* Contacto y Botones Rápidos */
-  .contact-box {
-    background: var(--card-bg);
-    border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 26px 20px;
+  .section-header {
     text-align: center;
   }
-  .contact-box h2 { font-family: 'Cinzel', serif; font-size: 1.25rem; margin-bottom: 8px; }
-  .contact-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
-  .contact-btn-wa {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: #25d366; color: #000; font-weight: 700;
-    padding: 12px 24px; border-radius: 8px; font-size: 0.85rem;
-    text-transform: uppercase; letter-spacing: 0.5px;
+
+  .section-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--bronze-accent);
   }
 
-  /* Barra de Navegación Fija */
-  .bottom-nav {
-    position: fixed; left:0; right:0; bottom:0; z-index: 50;
-    max-width: 540px; margin: 0 auto;
-    background: rgba(8, 10, 15, 0.92); backdrop-filter: blur(15px);
-    border-top: 1px solid var(--border-subtle);
-    display: flex; justify-content: space-around; align-items: center;
-    padding: 12px 8px calc(12px + env(safe-area-inset-bottom));
+  .divider {
+    width: 24px;
+    height: 1px;
+    background: var(--bronze-accent);
+    opacity: 0.5;
+    margin: 8px auto 0;
   }
-  .nav-item {
-    display: flex; flex-direction: column; align-items: center; gap: 4px;
-    color: var(--text-muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px;
-  }
-  .nav-item .n-icon { font-size: 1.1rem; }
-  .nav-item.active { color: var(--gold); }
 
-  footer {
-    padding: 30px 24px 10px; border-top: 1px solid rgba(255,255,255,0.05);
-    margin-top: 36px; text-align: center;
+  /* Grid Simétrico para los Planes */
+  .planes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
-  .footer-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 6px; }
-  .footer-copy { color: var(--text-muted); font-size: 0.72rem; }
+
+  .card-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .card-item:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .icon {
+    font-size: 1.4rem;
+    color: var(--bronze-accent);
+  }
+
+  .item-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .item-sub {
+    font-size: 0.62rem;
+    color: var(--text-secondary);
+    text-transform: capitalize;
+  }
+
+  /* Grid para Demos en Vivo */
+  .demos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  /* Grid para Sistemas Extras */
+  .extras-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Botones de Contacto Simétricos */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .btn-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-contact:hover {
+    border-color: var(--border-hover);
+  }
+
+  .icon-wa { color: var(--whatsapp-green); font-size: 1.1rem; }
+  .icon-tg { color: var(--telegram-blue); font-size: 1.1rem; }
+
+  /* Enlaces de administración ocultos pero accesibles */
+  .admin-shortcuts {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .shortcut-link {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    text-decoration: underline;
+    opacity: 0.5;
+  }
+
+  .shortcut-link:hover {
+    opacity: 1;
+    color: var(--bronze-accent);
+  }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <a class="icon-btn" href="#home">✦</a>
-  <a class="icon-btn" href="#planes">💳</a>
-</div>
+<div class="container">
 
-<!-- HERO CORPORATIVO -->
-<div class="hero-section" id="home">
-  <div class="hero-logo-box">
-    <!-- El parámetro ?v=2 obliga al navegador a borrar la imagen anterior de la caché -->
-    <img src="assets/hero-logo.jpg?v=2" alt="DHELFHOS Branding Tech">
-  </div>
-  <p class="hero-tagline">Branding Tech &bull; Soluciones Digitales</p>
-  <h1 class="hero-title">DHELFHOS</h1>
-  <h2 class="hero-subtitle">Tu visión, nuestra tecnología</h2>
-  <p class="hero-desc">Desarrollo web corporativo, flyers publicitarios, menús digitales con código QR, branding de marca y marketing digital de alto impacto.</p>
-  <div class="hero-actions">
-    <a class="btn-gold" href="#planes">Ver Planes</a>
-    <a class="btn-outline" href="#projects">Portafolio</a>
-  </div>
-</div>
+  <!-- PERFIL -->
+  <header class="profile-section">
+    <div class="profile-frame">
+      <img src="assets/jose-arias.jpg" alt="JOSE ARIAS" class="profile-img">
+    </div>
+    <h1 class="profile-name">JOSE ARIAS</h1>
+    <div class="profile-title">CEO & Fundador de DHELFHOS</div>
+  </header>
 
-<!-- SECCIÓN DE PLANES Y PRECIOS -->
-<section id="planes">
-  <div class="section-head">
-    <h2 class="section-title">Planes & Tarifas</h2>
-    <div class="gold-divider"></div>
+  <!-- NUESTROS PLANES -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Nuestros Planes</h2>
+      <div class="divider"></div>
+    </div>
+    <!-- Enlace a la imagen descriptiva de planes si ya existe en tu repositorio -->
+    <div class="planes-grid">
+      <a href="#demos" class="card-item">
+        <span class="icon">💼</span>
+        <span class="item-title">Básico</span>
+      </a>
+      <a href="#demos" class="card-item">
+        <span class="icon">🚀</span>
+        <span class="item-title">Emprendedor</span>
+      </a>
+      <a href="#demos" class="card-item">
+        <span class="icon">👑</span>
+        <span class="item-title">Premium</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- DEMOS EN VIVO -->
+  <section id="demos" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Demos en vivo</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="demos-grid">
+      <a href="projects/malibut/index.html" target="_blank" rel="noopener" class="card-item">
+        <span class="icon">📖</span>
+        <span class="item-title">Menú</span>
+        <span class="item-sub">Básico</span>
+      </a>
+      <a href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener" class="card-item">
+        <span class="icon">📱</span>
+        <span class="item-title">Menú</span>
+        <span class="item-sub">Emprendedor</span>
+      </a>
+      <a href="https://daa5b541.el-parche.pages.dev/" target="_blank" rel="noopener" class="card-item">
+        <span class="icon">🛒</span>
+        <span class="item-title">Premium</span>
+        <span class="item-sub">En Vivo</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SISTEMAS EXTRAS -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Sistemas Extras</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="extras-grid">
+      <a href="https://el-parche.pages.dev/admin/" target="_blank" rel="noopener" class="card-item">
+        <span class="icon">📊</span>
+        <span class="item-title">Dashboard Admin</span>
+        <span class="item-sub">Ver sistema</span>
+      </a>
+      <a href="https://el-parche.pages.dev/cocina/" target="_blank" rel="noopener" class="card-item">
+        <span class="icon">🍳</span>
+        <span class="item-title">Dashboard Cocina</span>
+        <span class="item-sub">Ver pantalla</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACTO DIRECTO -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Contacto Directo</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <a href="https://wa.me/573043941144" target="_blank" rel="noopener" class="btn-contact">
+        <span class="icon-wa">💬</span> WhatsApp
+      </a>
+      <a href="https://t.me/joseariah" target="_blank" rel="noopener" class="btn-contact">
+        <span class="icon-tg">✈</span> Telegram
+      </a>
+    </div>
+  </section>
+
+  <!-- ENLACES DE ADMINISTRACIÓN INTERNOS -->
+  <div class="admin-shortcuts">
+    <a href="admin.htm" class="shortcut-link">Acceso Admin</a>
+    <a href="cocina.htm" class="shortcut-link">Cocina</a>
+    <a href="parche.htm" class="shortcut-link">Parche</a>
   </div>
 
-  <div class="plans-wrapper">
-    <!-- El parámetro ?v=2 fuerza la recarga de la tabla nueva -->
-    <img src="assets/planes-table.jpg?v=2" alt="Tabla de Planes Dhelfhos">
-  </div>
-
-  <div class="demo-group">
-    <a class="demo-item" href="projects/malibut/index.html" target="_blank" rel="noopener">
-      <div class="demo-info">
-        <h4>Demo Plan Básico</h4>
-        <p>Menú interactivo sin fotos / QR digital</p>
-      </div>
-      <span class="badge-gold">Explorar ↗</span>
-    </a>
-    <a class="demo-item" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
-      <div class="demo-info">
-        <h4>Demo Plan Emprendedor</h4>
-        <p>Menú con fotos, banners y redes</p>
-      </div>
-      <span class="badge-gold">Explorar ↗</span>
-    </a>
-    <a class="demo-item" href="https://shiny-frost-10dc.dhelfhos.workers.dev/" target="_blank" rel="noopener">
-      <div class="demo-info">
-        <h4>Demo Plan Premium</h4>
-        <p>Carrito completo, mesas, pedidos y dashboards</p>
-      </div>
-      <span class="badge-gold">Explorar ↗</span>
-    </a>
-  </div>
-</section>
-
-<!-- SECCIÓN DE SERVICIOS -->
-<section id="services">
-  <div class="section-head">
-    <h2 class="section-title">Servicios</h2>
-    <div class="gold-divider"></div>
-  </div>
-  <div class="service-card">
-    <h3>Desarrollo Web & Branding</h3>
-    <p>Sitios corporativos a medida, páginas de aterrizaje de alta conversión y estructuración visual completa de marca.</p>
-  </div>
-  <div class="service-card">
-    <h3>Menús Digitales Interactivos</h3>
-    <p>Cartas inteligentes autogestionables mediante código QR, optimizadas para pedidos inmediatos y fidelización de clientes.</p>
-  </div>
-  <div class="service-card">
-    <h3>Flyers & Publicidad Digital</h3>
-    <p>Diseño publicitario sobrio y persuasivo para campañas comerciales y presencia sólida en plataformas digitales.</p>
-  </div>
-</section>
-
-<!-- DEMOS DESTACADAS -->
-<section id="projects">
-  <div class="section-head">
-    <h2 class="section-title">Casos de Éxito</h2>
-    <div class="gold-divider"></div>
-  </div>
-  <div class="cards-scroll">
-    <a class="project-card" href="projects/lamerica/index.html" target="_blank" rel="noopener">
-      <div class="project-thumb">
-        <iframe class="live-thumb" src="projects/lamerica/index.html" tabindex="-1" title="L'America"></iframe>
-      </div>
-      <div class="project-info">
-        <div class="p-title">L'America <span style="color:var(--gold);">↗</span></div>
-        <div class="p-sub">Diseño Web & Branding</div>
-      </div>
-    </a>
-    <a class="project-card" href="https://dhelfhos-techmanagement.github.io/hawaii/" target="_blank" rel="noopener">
-      <div class="project-thumb">
-        <iframe class="live-thumb" src="https://dhelfhos-techmanagement.github.io/hawaii/" tabindex="-1" title="Hawaii"></iframe>
-      </div>
-      <div class="project-info">
-        <div class="p-title">Hawaii Restobar <span style="color:var(--gold);">↗</span></div>
-        <div class="p-sub">Menú Digital Interactivo</div>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contact">
-  <div class="contact-box">
-    <h2>DHELFHOS TECH</h2>
-    <p>Permítenos diseñar y transformar la presencia digital de tu marca.</p>
-    <a class="contact-btn-wa" href="https://wa.me/573043941144" target="_blank" rel="noopener">
-      Contactar por WhatsApp
-    </a>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">DHELFHOS</div>
-  <div class="footer-copy">© 2026 DHELFHOS. Todos los derechos reservados.</div>
-</footer>
-
-<!-- NAVEGACIÓN INFERIOR -->
-<nav class="bottom-nav">
-  <a class="nav-item active" href="#home"><span class="n-icon">✦</span>Inicio</a>
-  <a class="nav-item" href="#planes"><span class="n-icon">💳</span>Planes</a>
-  <a class="nav-item" href="#services"><span class="n-icon">⚙</span>Servicios</a>
-  <a class="nav-item" href="#projects"><span class="n-icon">🗂</span>Demos</a>
-  <a class="nav-item" href="#contact"><span class="n-icon">💬</span>Contacto</a>
-</nav>
-
-<!-- ACCESOS INTERNOS RÁPIDOS -->
-<div style="text-align: center; margin: 30px 0 10px; z-index: 999; position: relative;">
-  <a href="admin.htm" style="padding: 8px 16px; background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: #cbd5e1; text-decoration: none; border-radius: 6px; margin: 4px; display: inline-block; font-size: 0.75rem;">Admin</a>
-  <a href="cocina.htm" style="padding: 8px 16px; background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: #cbd5e1; text-decoration: none; border-radius: 6px; margin: 4px; display: inline-block; font-size: 0.75rem;">Cocina</a>
-  <a href="parche.htm" style="padding: 8px 16px; background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: #cbd5e1; text-decoration: none; border-radius: 6px; margin: 4px; display: inline-block; font-size: 0.75rem;">Parche</a>
 </div>
 
 </body>
